@@ -1,5 +1,7 @@
+@import "../../css/typography.css";
+
 html {
-  font-family: sans-serif;
+  font-family: 'Blinker-Regular', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -46,6 +48,9 @@ a {
 a:active,
 a:hover {
   outline-width: 0;
+}
+a:visited {
+  color: #c6c6d6;
 }
 abbr[title] {
   border-bottom: none;
@@ -94,7 +99,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 figure {
@@ -199,8 +204,8 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  color: #212121;
+  font-family: Blinker, Helvetica, sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
