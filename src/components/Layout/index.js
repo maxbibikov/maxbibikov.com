@@ -39,8 +39,13 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Blinker-Bold";
     font-size: 3rem;
   }
-
 `;
+
+const windowGlobal = typeof window !== "undefined";
+let savedTheme = "default";
+if (windowGlobal) {
+  savedTheme = localStorage.getItem("theme") || "default";
+}
 
 const MainContainer = styled.main`
   display: flex;
@@ -51,14 +56,17 @@ const MainContainer = styled.main`
 `;
 
 const Layout = ({ children }) => {
-  const savedTheme = localStorage.getItem("theme") || "default";
   const [theme, setTheme] = React.useState(savedTheme);
   const toggleTheme = () => {
     if (theme === "default") {
-      localStorage.setItem("theme", "dark");
+      if (windowGlobal) {
+        localStorage.setItem("theme", "dark");
+      }
       setTheme("dark");
     } else {
-      localStorage.setItem("theme", "default");
+      if (windowGlobal) {
+        localStorage.setItem("theme", "default");
+      }
       setTheme("default");
     }
   };
