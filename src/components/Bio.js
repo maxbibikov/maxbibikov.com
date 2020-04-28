@@ -6,6 +6,7 @@ const BioContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2em 0;
 `;
 
 const Avatar = styled.div`

@@ -12,7 +12,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   background-color: ${({ theme }) => theme.bg_contrast};
   color: ${({ theme }) => theme.text_contrast};
-  height: 5em;
+  height: 4em;
 `;
 
 const Logo = styled(props => <Link {...props} />)`
@@ -27,9 +27,9 @@ const Logo = styled(props => <Link {...props} />)`
   color: ${({ theme }) => theme.text_contrast};
   font-size: 2rem;
   transition: transform 0.3s linear;
-  transition: color 0.5s ease;
   &:hover {
     transform: scale(1.05);
+    color: ${({ theme }) => theme.text_contrast};
   }
   &:visited {
     color: ${({ theme }) => theme.text_contrast};
@@ -46,6 +46,7 @@ const ThemeBtn = styled.button`
   background-color: ${({ theme }) => theme.bg_contrast};
   color: ${({ theme }) => theme.text_contrast};
   transition: color 1s;
+  cursor: pointer;
   & svg {
     width: 1.5em;
   }
