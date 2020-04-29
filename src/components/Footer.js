@@ -2,9 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterContainer = styled.footer`
-  position: absolute;
-  bottom: 0;
-  height: 10vh;
+  position: static;
+  height: 4em;
   display: flex;
   flex-direction: column;
   justify-content: center;
