@@ -1,12 +1,16 @@
 import React from "react";
-import Image from "./Image";
 import styled from "styled-components";
+import { navigate } from "gatsby";
+
+// Components
+import Image from "./Image";
+import { Button } from "./Button";
 
 const BioContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em 0;
+  margin: 2em 0;
 `;
 
 const Avatar = styled.div`
@@ -29,7 +33,7 @@ const About = styled.div`
 `;
 
 const AboutText = styled.p`
-  margin: 0;
+  margin: 0 0 0.5em 0;
 `;
 
 export function Bio() {
@@ -39,9 +43,13 @@ export function Bio() {
         <Image />
       </Avatar>
       <About>
-        <AboutText>Hi, I’m Max. Full Stack JS Developer.</AboutText>
-        <AboutText>React, React Native, NodeJS...</AboutText>
+        <h3>Maksym Bibikov</h3>
+        <AboutText>Hi, I'm Max, Full Stack Developer.</AboutText>
+        <AboutText>
+          I build projects with React, React-Native, NodeJS.
+        </AboutText>
       </About>
+      <Button onClick={() => navigate("/contact")}>contact me</Button>
     </BioContainer>
   );
 }

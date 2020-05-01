@@ -2,6 +2,8 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+
+// Assets
 import SunIcon from "../../assets/images/sun-solid.svg";
 import MoonIcon from "../../assets/images/moon-solid.svg";
 import BarsIcon from "../../assets/images/bars-solid.svg";
@@ -13,6 +15,7 @@ const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.bg_contrast};
   color: ${({ theme }) => theme.text_contrast};
   height: 4em;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 `;
 
 const Logo = styled(props => <Link {...props} />)`
@@ -75,7 +78,6 @@ const Header = ({ toggleTheme, theme }) => {
       <ThemeBtn type="button" onClick={() => toggleTheme()}>
         {theme === "default" ? <SunIcon /> : <MoonIcon />}
       </ThemeBtn>
-      {/* Navigation */}
       <NavMenuBtn>
         <BarsIcon />
       </NavMenuBtn>

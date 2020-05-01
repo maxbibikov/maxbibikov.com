@@ -22,6 +22,13 @@ export function Footer() {
         Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
       </span>
       <Year>© {new Date().getFullYear()} Maksym Bibikov</Year>
+      <a
+        href="https://github.com/maxbibikov/maxbibikov.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Source Code
+      </a>
     </FooterContainer>
   );
 }
