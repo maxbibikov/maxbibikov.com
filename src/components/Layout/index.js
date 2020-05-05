@@ -54,31 +54,33 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const windowGlobal = typeof window !== "undefined";
-let savedTheme = "default";
-if (windowGlobal) {
-  savedTheme = localStorage.getItem("theme") || "default";
-}
-
 const MainContainer = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
   min-height: calc(100vh - 8em); /* 8em = 4em header + 4 em footer heights */
   height: 100%;
-`;
+  `;
+
+const windowGlobal = typeof window !== "undefined";
 
 const Layout = ({ children }) => {
+  let savedTheme = "default";
+  if (windowGlobal) {
+    savedTheme = localStorage.getItem("theme") || "default";
+  }
   const [theme, setTheme] = React.useState(savedTheme);
   const toggleTheme = () => {
     if (theme === "default") {
       if (windowGlobal) {
+        console.log("set theme to dark");
         localStorage.setItem("theme", "dark");
       }
       setTheme("dark");
     } else {
       if (windowGlobal) {
         localStorage.setItem("theme", "default");
+        console.log("set theme to default");
       }
       setTheme("default");
     }

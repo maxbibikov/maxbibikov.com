@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 // Assets
-import LinkedInIcon from "../../assets/images/linkedin-brands.svg";
-import GithubIcon from "../../assets/images/github-alt-brands.svg";
-import EnvelopeIcon from "../../assets/images/envelope-square-solid.svg";
+import LinkedInIcon from "../../assets/icons/linkedin-brands.svg";
+import GithubIcon from "../../assets/icons/github-alt-brands.svg";
+import EnvelopeIcon from "../../assets/icons/envelope-square-solid.svg";
 
 const SocialContainer = styled.section`
   display: flex;
@@ -12,6 +12,7 @@ const SocialContainer = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 2em;
 `;
 
 const LinkContainer = styled.div`
@@ -27,7 +28,6 @@ const SocialLink = styled.a`
   color: ${({ theme }) => theme.text_color};
   cursor: pointer;
   text-decoration: underline;
-
   &:hover {
     color: ${({ theme }) => theme.text_accent};
   }
@@ -45,7 +45,7 @@ const ColumnSpace = styled.div`
 export const Social = () => {
   return (
     <SocialContainer>
-      <h3>SOCIAL</h3>
+      <h2>SOCIAL</h2>
 
       <LinkContainer>
         <SocialLink

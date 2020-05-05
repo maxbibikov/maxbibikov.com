@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  repo: maxbibikov/maxbibikov.com
+  branch: master
+
+local_backend: true
+publish_mode: editorial_workflow
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Demo Link", name: "demo_link", widget: "string" }
+      - { label: "Source Code Link", name: "source_link", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
