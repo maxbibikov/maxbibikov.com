@@ -2,6 +2,12 @@ backend:
   name: git-gateway
   repo: maxbibikov/maxbibikov.com
   branch: master
+  commit_messages:
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
 
 local_backend: true
 publish_mode: editorial_workflow
@@ -23,4 +29,10 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Demo Link", name: "demo_link", widget: "string" }
       - { label: "Source Code Link", name: "source_link", widget: "string" }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false,
+        }
       - { label: "Body", name: "body", widget: "markdown" }

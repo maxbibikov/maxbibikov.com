@@ -60,7 +60,7 @@ const MainContainer = styled.main`
   flex-direction: column;
   min-height: calc(100vh - 8em); /* 8em = 4em header + 4 em footer heights */
   height: 100%;
-  `;
+`;
 
 const windowGlobal = typeof window !== "undefined";
 
@@ -73,14 +73,12 @@ const Layout = ({ children }) => {
   const toggleTheme = () => {
     if (theme === "default") {
       if (windowGlobal) {
-        console.log("set theme to dark");
         localStorage.setItem("theme", "dark");
       }
       setTheme("dark");
     } else {
       if (windowGlobal) {
         localStorage.setItem("theme", "default");
-        console.log("set theme to default");
       }
       setTheme("default");
     }

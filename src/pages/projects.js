@@ -13,6 +13,26 @@ const Container = styled.section`
   align-items: center;
   width: 90%;
   margin-bottom: 2em;
+
+  @media only screen and (min-width: 600px) {
+    width: 80%;
+  }
+  @media only screen and (min-width: 900px) {
+    width: 70%;
+  }
+`;
+
+const ProjectsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (min-width: 600px) {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 `;
 
 export default function Projects({ data }) {
@@ -22,17 +42,19 @@ export default function Projects({ data }) {
     <Layout>
       <Container>
         <h2>ALL PROJECTS</h2>
-        {projects.map(({ node }) => {
-          return (
-            <ProjectCard
-              key={node.frontmatter.title}
-              title={node.frontmatter.title}
-              description={node.frontmatter.description}
-              linkDemo={node.frontmatter.linkDemo}
-              linkSource={node.frontmatter.linkSource}
-            />
-          );
-        })}
+        <ProjectsContainer>
+          {projects.map(({ node }) => {
+            return (
+              <ProjectCard
+                key={node.frontmatter.title}
+                title={node.frontmatter.title}
+                description={node.frontmatter.description}
+                demoLink={node.frontmatter.demo_link}
+                sourceLink={node.frontmatter.source_link}
+              />
+            );
+          })}
+        </ProjectsContainer>
       </Container>
     </Layout>
   );
@@ -46,11 +68,10 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            path
             title
             description
-            linkDemo
-            linkSource
+            demo_link
+            source_link
           }
         }
       }

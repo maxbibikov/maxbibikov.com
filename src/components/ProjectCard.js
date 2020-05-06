@@ -4,11 +4,19 @@ import { string } from "prop-types";
 
 // Styles
 const Container = styled.article`
+  width: 100%;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
   border: 1px solid ${({ theme }) => theme.bg_contrast};
   margin: 1em 0;
+
+  @media only screen and (min-width: 600px) {
+    width: 45%
+  }
+  @media only screen and (min-width: 900px) {
+    width: 45%
+  }
 `;
 
 const Header = styled.header`
@@ -41,8 +49,8 @@ export const ProjectCard = ({
   title,
   subtitle,
   description,
-  linkDemo,
-  linkSource,
+  demoLink,
+  sourceLink,
 }) => {
   return (
     <Container>
@@ -52,10 +60,12 @@ export const ProjectCard = ({
       </Header>
       <Text>{description}</Text>
       <Actions>
-        <ActionLink href={linkDemo} target="_blank" rel="noopener noreferrer">
-          Demo
-        </ActionLink>
-        <ActionLink href={linkSource} target="_blank" rel="noopener noreferrer">
+        {demoLink && (
+          <ActionLink href={demoLink} target="_blank" rel="noopener noreferrer">
+            Demo
+          </ActionLink>
+        )}
+        <ActionLink href={sourceLink} target="_blank" rel="noopener noreferrer">
           Source Code
         </ActionLink>
       </Actions>
@@ -67,10 +77,12 @@ ProjectCard.propTypes = {
   title: string.isRequired,
   subtitle: string,
   description: string.isRequired,
-  linkDemo: string.isRequired,
-  linkSource: string.isRequired,
+  demoLink: string,
+  sourceLink: string.isRequired,
 };
 
 ProjectCard.defaultProps = {
   subtitle: "",
+  demoLink: "",
+  sourceLink: "",
 };

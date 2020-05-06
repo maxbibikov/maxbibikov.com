@@ -15,13 +15,16 @@ const pageQuery = graphql`
     ) {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            path
+            thumbnail
             title
             description
-            linkDemo
-            linkSource
+            demo_link
+            source_link
           }
         }
       }
@@ -38,6 +41,18 @@ const Container = styled.section`
   margin-bottom: 2em;
 `;
 
+const ProjectsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (min-width: 600px) {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+`;
+
 export function ProjectsPreview() {
   const data = useStaticQuery(pageQuery);
   const { allMarkdownRemark } = data;
@@ -46,17 +61,20 @@ export function ProjectsPreview() {
   return (
     <Container>
       <h2>PROJECTS</h2>
-      {projects.map(({ node }) => {
-        return (
-          <ProjectCard
-            key={node.frontmatter.title}
-            title={node.frontmatter.title}
-            description={node.frontmatter.description}
-            linkDemo={node.frontmatter.linkDemo}
-            linkSource={node.frontmatter.linkSource}
-          />
-        );
-      })}
+      <ProjectsContainer>
+        {projects.map(({ node }) => {
+
+          return (
+            <ProjectCard
+              key={node.fields.slug}
+              title={node.frontmatter.title}
+              description={node.frontmatter.description}
+              demoLink={node.frontmatter.demo_link}
+              sourceLink={node.frontmatter.source_link}
+            />
+          );
+        })}
+      </ProjectsContainer>
 
       <Button onClick={() => navigate("/projects")}>All Projects</Button>
     </Container>
