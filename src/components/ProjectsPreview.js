@@ -49,7 +49,7 @@ const ProjectsContainer = styled.div`
   @media only screen and (min-width: 600px) {
     flex-direction: row;
     align-items: stretch;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 `;
 
