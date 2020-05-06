@@ -54,12 +54,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const windowGlobal = typeof window !== "undefined";
-let savedTheme = "default";
-if (windowGlobal) {
-  savedTheme = localStorage.getItem("theme") || "default";
-}
-
 const MainContainer = styled.main`
   display: flex;
   align-items: center;
@@ -68,7 +62,13 @@ const MainContainer = styled.main`
   height: 100%;
 `;
 
+const windowGlobal = typeof window !== "undefined";
+
 const Layout = ({ children }) => {
+  let savedTheme = "default";
+  if (windowGlobal) {
+    savedTheme = localStorage.getItem("theme") || "default";
+  }
   const [theme, setTheme] = React.useState(savedTheme);
   const toggleTheme = () => {
     if (theme === "default") {

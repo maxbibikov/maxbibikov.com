@@ -1,36 +1,52 @@
 import React from "react";
-import Image from "./Image";
 import styled from "styled-components";
+import { navigate } from "gatsby";
+
+// Components
+import Image from "./Image";
+import { Button } from "./Button";
 
 const BioContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em 0;
+  margin: 2em 0;
+  padding: 0 0.5em;
 `;
 
 const Avatar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   border-radius: 75px;
-  border: 5px solid #fff;
+  border: 2px solid #fff;
+  margin-bottom: 0.5em;
   & img {
     margin: 0;
   }
 `;
 
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const About = styled.div`
-  margin-top: 1em;
   text-align: center;
 `;
 
 const AboutText = styled.p`
   margin: 0;
+  font-size: 1.1rem;
 `;
+
+const TechText = styled.p`
+  font-size: 1.1rem;
+  color: ${(({theme}) => theme.text_accent)}
+`
 
 export function Bio() {
   return (
@@ -39,9 +55,13 @@ export function Bio() {
         <Image />
       </Avatar>
       <About>
-        <AboutText>Hi, I’m Max. Full Stack JS Developer.</AboutText>
-        <AboutText>React, React Native, NodeJS...</AboutText>
+        <TitleContainer>
+          <h3 style={{ margin: 0 }}>Maksym Bibikov</h3>
+          <AboutText>Full Stack JavaScript Developer</AboutText>
+          <TechText>React | React-Native | NodeJS</TechText>
+        </TitleContainer>
       </About>
+      <Button onClick={() => navigate("/contact")}>contact me</Button>
     </BioContainer>
   );
 }

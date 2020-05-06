@@ -1,18 +1,18 @@
 import React from "react";
-import { navigate } from "gatsby";
 
+// Components
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { Bio } from "../components/Bio";
-import { Button } from "../components/Button";
+import { Social } from "../components/Social";
+import { ProjectsPreview } from "../components/ProjectsPreview";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Max Bibikov" />
     <Bio />
-    <section>
-      <Button onClick={() => navigate("/contact")}>contact me</Button>
-    </section>
+    <Social />
+    <ProjectsPreview />
   </Layout>
 );
 

@@ -2,37 +2,39 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import SunIcon from "../../assets/images/sun-solid.svg";
-import MoonIcon from "../../assets/images/moon-solid.svg";
-import BarsIcon from "../../assets/images/bars-solid.svg";
+
+// Assets
+import SunIcon from "../../assets/icons/sun-solid.svg";
+import MoonIcon from "../../assets/icons/moon-solid.svg";
+import BarsIcon from "../../assets/icons/bars-solid.svg";
 
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.bg_contrast};
-  color: ${({ theme }) => theme.text_contrast};
+  background-color: ${({ theme }) => theme.bg_color};
+  color: ${({ theme }) => theme.text_color};
   height: 4em;
+  transition: background-color 0.5s, color 0.5s ease;
 `;
 
 const Logo = styled(props => <Link {...props} />)`
-  box-sizing: border-box;
-  font-family: "Blinker-Bold";
-  width: 2em;
-  height: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  padding: 0 1em;
   text-decoration: none;
-  color: ${({ theme }) => theme.text_contrast};
-  font-size: 2rem;
+  color: ${({ theme }) => theme.text_color};
+  font-size: 1.2rem;
   transition: transform 0.3s linear;
+  transition: background-color 0.5s, color 0.5s ease;
   &:hover {
     transform: scale(1.05);
-    color: ${({ theme }) => theme.text_contrast};
+    color: ${({ theme }) => theme.text_color};
   }
   &:visited {
-    color: ${({ theme }) => theme.text_contrast};
+    color: ${({ theme }) => theme.text_color};
   }
 `;
 
@@ -43,9 +45,9 @@ const ThemeBtn = styled.button`
   width: 4em;
   height: 4em;
   border: none;
-  background-color: ${({ theme }) => theme.bg_contrast};
-  color: ${({ theme }) => theme.text_contrast};
-  transition: color 1s;
+  background-color: ${({ theme }) => theme.bg_color};
+  color: ${({ theme }) => theme.text_color};
+  transition: background-color 0.5s, color 0.5s ease;
   cursor: pointer;
   & svg {
     width: 1.5em;
@@ -59,8 +61,10 @@ const NavMenuBtn = styled.button`
   width: 4em;
   height: 4em;
   border: none;
-  background-color: ${({ theme }) => theme.bg_contrast};
-  color: ${({ theme }) => theme.text_contrast};
+  background-color: ${({ theme }) => theme.bg_color};
+  color: ${({ theme }) => theme.text_color};
+  transition: background-color 0.5s, color 0.5s ease;
+  cursor: pointer;
   & svg {
     width: 1.5em;
   }
@@ -69,16 +73,13 @@ const NavMenuBtn = styled.button`
 const Header = ({ toggleTheme, theme }) => {
   return (
     <HeaderContainer>
-      <div>
-        <Logo to="/">MB</Logo>
-      </div>
-      <ThemeBtn type="button" onClick={() => toggleTheme()}>
-        {theme === "default" ? <SunIcon /> : <MoonIcon />}
-      </ThemeBtn>
-      {/* Navigation */}
       <NavMenuBtn>
         <BarsIcon />
       </NavMenuBtn>
+      <Logo to="/">maxbibikov.com</Logo>
+      <ThemeBtn type="button" onClick={() => toggleTheme()}>
+        {theme === "default" ? <SunIcon /> : <MoonIcon />}
+      </ThemeBtn>
     </HeaderContainer>
   );
 };
