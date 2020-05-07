@@ -9,7 +9,7 @@ import { ProjectsPreview } from "../components/ProjectsPreview";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Max Bibikov" />
+    <SEO title="Maksym Bibikov - Full Stack JS Developer" />
     <Bio />
     <Social />
     <ProjectsPreview />

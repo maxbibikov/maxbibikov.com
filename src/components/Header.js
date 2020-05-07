@@ -8,6 +8,9 @@ import SunIcon from "../../assets/icons/sun-solid.svg";
 import MoonIcon from "../../assets/icons/moon-solid.svg";
 import BarsIcon from "../../assets/icons/bars-solid.svg";
 
+// Components
+import { NavModal } from "./NavModal";
+
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
@@ -64,25 +67,36 @@ const NavMenuBtn = styled.button`
   background-color: ${({ theme }) => theme.bg_color};
   color: ${({ theme }) => theme.text_color};
   transition: background-color 0.5s, color 0.5s ease;
-  cursor: pointer;
+  ${({ hidden }) => hidden && `visibility: hidden;`}
   & svg {
     width: 1.5em;
   }
+
+  @media only screen and (min-width: 900px) {
+    display: none;
+  }
 `;
 
-const Header = ({ toggleTheme, theme }) => {
+function Header({ toggleTheme, theme }) {
+  const [showNavModal, setShowNavModal] = React.useState(false);
+  const onMenuBtnClick = () => {
+    setShowNavModal(true);
+  };
+  const hideModal = () => setShowNavModal(false);
+
   return (
     <HeaderContainer>
-      <NavMenuBtn>
+      <NavMenuBtn onClick={onMenuBtnClick} hidden={showNavModal}>
         <BarsIcon />
       </NavMenuBtn>
+      <NavModal visible={showNavModal} hideModal={hideModal} />
       <Logo to="/">maxbibikov.com</Logo>
       <ThemeBtn type="button" onClick={() => toggleTheme()}>
         {theme === "default" ? <SunIcon /> : <MoonIcon />}
       </ThemeBtn>
     </HeaderContainer>
   );
-};
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
