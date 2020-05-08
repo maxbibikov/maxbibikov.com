@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import CrossIcon from "../../assets/icons/times-solid.svg";
 
 const NavModalContainer = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
