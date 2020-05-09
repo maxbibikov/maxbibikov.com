@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { string } from "prop-types";
+import { string, arrayOf } from "prop-types";
 
 // Styles
 const Container = styled.article`
@@ -12,15 +12,16 @@ const Container = styled.article`
   margin: 1em 0;
 
   @media only screen and (min-width: 600px) {
-    width: 45%
+    width: 45%;
   }
   @media only screen and (min-width: 900px) {
-    width: 45%
+    width: 45%;
   }
 `;
 
 const Header = styled.header`
   display: flex;
+  flex-direction: column;
   padding: 1em;
 `;
 
@@ -45,18 +46,39 @@ const ActionLink = styled.a`
   }
 `;
 
+const TagsContainer = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+`;
+
+const Tag = styled.li`
+  padding: 0;
+  margin: 0;
+`;
+
 export const ProjectCard = ({
   title,
-  subtitle,
   description,
   demoLink,
   sourceLink,
+  tags,
 }) => {
+  let renderTags;
+
+  if (tags && tags.length) {
+    renderTags = tags.map(tag => <Tag key={tag}>#{tag}</Tag>);
+  }
+
   return (
     <Container>
       <Header>
         <h3>{title}</h3>
-        {subtitle && <p>{subtitle}</p>}
+        <TagsContainer>{renderTags}</TagsContainer>
       </Header>
       <Text>{description}</Text>
       <Actions>
@@ -75,14 +97,14 @@ export const ProjectCard = ({
 
 ProjectCard.propTypes = {
   title: string.isRequired,
-  subtitle: string,
   description: string.isRequired,
   demoLink: string,
   sourceLink: string.isRequired,
+  tags: arrayOf(string),
 };
 
 ProjectCard.defaultProps = {
-  subtitle: "",
   demoLink: "",
   sourceLink: "",
+  tags: [],
 };

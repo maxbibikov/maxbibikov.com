@@ -25,6 +25,7 @@ const pageQuery = graphql`
             description
             demo_link
             source_link
+            tags
           }
         }
       }
@@ -63,7 +64,6 @@ export function ProjectsPreview() {
       <h2>PROJECTS</h2>
       <ProjectsContainer>
         {projects.map(({ node }) => {
-
           return (
             <ProjectCard
               key={node.fields.slug}
@@ -71,6 +71,7 @@ export function ProjectsPreview() {
               description={node.frontmatter.description}
               demoLink={node.frontmatter.demo_link}
               sourceLink={node.frontmatter.source_link}
+              tags={node.frontmatter.tags}
             />
           );
         })}
