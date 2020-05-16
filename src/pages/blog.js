@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 // Components
 import Layout from "../components/Layout";
-import { ProjectCard } from "../components/ProjectCard";
+import { BlogCard } from "../components/BlogCard";
 
 // Styles
 const Container = styled.section`
@@ -22,7 +22,7 @@ const Container = styled.section`
   }
 `;
 
-const ProjectsContainer = styled.div`
+const BlogContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,26 +35,25 @@ const ProjectsContainer = styled.div`
   }
 `;
 
-export default function Projects({ data }) {
+export default function Blog({ data }) {
   const { allMarkdownRemark } = data;
-  const projects = allMarkdownRemark.edges;
+  const blogPosts = allMarkdownRemark.edges;
   return (
     <Layout>
       <Container>
-        <h2>ALL PROJECTS</h2>
-        <ProjectsContainer>
-          {projects.map(({ node }) => {
+        <h2>BLOG POSTS</h2>
+        <BlogContainer>
+          {blogPosts.map(({ node }) => {
             return (
-              <ProjectCard
-                key={node.frontmatter.title}
+              <BlogCard
+                key={node.fields.title}
+                slug={node.fields.slug}
                 title={node.frontmatter.title}
                 description={node.frontmatter.description}
-                demoLink={node.frontmatter.demo_link}
-                sourceLink={node.frontmatter.source_link}
               />
             );
           })}
-        </ProjectsContainer>
+        </BlogContainer>
       </Container>
     </Layout>
   );
@@ -69,6 +68,9 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title

@@ -14,6 +14,13 @@ module.exports = {
         name: `projects`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
     // Image processing and optimization
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

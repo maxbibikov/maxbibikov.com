@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { graphql, useStaticQuery, navigate } from "gatsby";
 
 // Components
-import { ProjectCard } from "./ProjectCard";
+import { BlogCard } from "./BlogCard";
 import { Button } from "./Button";
 
 // Query
@@ -12,7 +12,7 @@ const pageQuery = graphql`
     allMarkdownRemark(
       limit: 2
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { templateKey: { eq: "project" } } }
+      filter: { frontmatter: { templateKey: { eq: "blog" } } }
     ) {
       edges {
         node {
@@ -24,8 +24,6 @@ const pageQuery = graphql`
             thumbnail
             title
             description
-            demo_link
-            source_link
             tags
           }
         }
@@ -43,7 +41,7 @@ const Container = styled.section`
   margin-bottom: 2em;
 `;
 
-const ProjectsContainer = styled.div`
+const BlogContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,31 +54,31 @@ const ProjectsContainer = styled.div`
   }
 `;
 
-export function ProjectsPreview() {
+export function BlogPreview() {
   const data = useStaticQuery(pageQuery);
   const { allMarkdownRemark } = data;
-  const projects = allMarkdownRemark.edges;
-  const navigateToProjects = () => navigate("/projects");
+  const blogPosts = allMarkdownRemark.edges;
+  const navigateToBlog = () => navigate("/blog");
 
   return (
     <Container>
-      <h2>PROJECTS</h2>
-      <ProjectsContainer>
-        {projects.map(({ node }) => {
+      <h2>BLOG</h2>
+      <BlogContainer>
+        {blogPosts.map(({ node }) => {
           return (
-            <ProjectCard
+            <BlogCard
               key={node.fields.slug}
+              slug={node.fields.slug}
               title={node.frontmatter.title}
               description={node.frontmatter.description}
-              demoLink={node.frontmatter.demo_link}
-              sourceLink={node.frontmatter.source_link}
+              thumbnail={node.frontmatter.thumbnail}
               tags={node.frontmatter.tags}
             />
           );
         })}
-      </ProjectsContainer>
+      </BlogContainer>
 
-      <Button onClick={navigateToProjects}>All Projects</Button>
+      <Button onClick={navigateToBlog}>All Posts</Button>
     </Container>
   );
 }
