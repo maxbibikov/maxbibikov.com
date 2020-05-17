@@ -34,6 +34,10 @@ const TitleContainer = styled.div`
   flex-direction: column;
 `;
 
+const Title = styled.h3`
+  margin: 0;
+`;
+
 const About = styled.div`
   text-align: center;
 `;
@@ -45,10 +49,11 @@ const AboutText = styled.p`
 
 const TechText = styled.p`
   font-size: 1.1rem;
-  color: ${(({theme}) => theme.text_accent)}
-`
+  color: ${({ theme }) => theme.text_accent};
+`;
 
 export function Bio() {
+  const navigateToContact = () => navigate("/contact");
   return (
     <BioContainer>
       <Avatar>
@@ -56,12 +61,12 @@ export function Bio() {
       </Avatar>
       <About>
         <TitleContainer>
-          <h3 style={{ margin: 0 }}>Maksym Bibikov</h3>
+          <Title>Maksym Bibikov</Title>
           <AboutText>Full Stack JavaScript Developer</AboutText>
           <TechText>React | React-Native | NodeJS</TechText>
         </TitleContainer>
       </About>
-      <Button onClick={() => navigate("/contact")}>contact me</Button>
+      <Button onClick={navigateToContact}>contact me</Button>
     </BioContainer>
   );
 }

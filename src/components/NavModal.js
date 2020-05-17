@@ -49,19 +49,15 @@ const NavLink = styled(props => <Link {...props} />)`
 `;
 
 export function NavModal({ visible, hideModal }) {
-  const onMenuCloseBtnClick = () => {
-    hideModal();
-  };
-
   return (
     <NavModalContainer visible={visible}>
-      <NavMenuCloseBtn onClick={onMenuCloseBtnClick}>
+      <NavMenuCloseBtn onClick={hideModal}>
         <CrossIcon />
       </NavMenuCloseBtn>
       <NavLink
         to="/"
         activeStyle={{ textDecoration: "underline" }}
-        onClick={() => hideModal()}
+        onClick={hideModal}
       >
         Home
       </NavLink>
@@ -69,14 +65,14 @@ export function NavModal({ visible, hideModal }) {
       <NavLink
         to="/projects"
         activeStyle={{ textDecoration: "underline" }}
-        onClick={() => hideModal()}
+        onClick={hideModal}
       >
         Projects
       </NavLink>
       <NavLink
         to="/contact"
         activeStyle={{ textDecoration: "underline" }}
-        onClick={() => hideModal()}
+        onClick={hideModal}
       >
         Contact
       </NavLink>

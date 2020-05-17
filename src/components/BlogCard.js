@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { string, arrayOf } from "prop-types";
 
@@ -19,8 +20,11 @@ const Header = styled.header`
   padding: 1em;
 `;
 
-const Title = styled.h3`
+const Title = styled(props => <Link {...props} />)`
   margin: 0;
+  font-family: "Blinker-Bold";
+  font-size: 1.3rem;
+  text-decoration: none;
   margin-bottom: 0.5em;
 `;
 
@@ -65,14 +69,7 @@ const ActionLink = styled.a`
     background-color: ${({ theme }) => theme.bg_contrast};
   }
 `;
-
-export const ProjectCard = ({
-  title,
-  description,
-  demoLink,
-  sourceLink,
-  tags,
-}) => {
+export const BlogCard = ({ slug, title, description, thumbnail, tags }) => {
   let renderTags;
 
   if (tags && tags.length) {
@@ -82,34 +79,27 @@ export const ProjectCard = ({
   return (
     <Container>
       <Header>
-        <Title>{title}</Title>
+        <Title to={`/blog${slug}`}>{title}</Title>
         <Text>{description}</Text>
       </Header>
       <TagsContainer>{renderTags}</TagsContainer>
       <Actions>
-        {demoLink && (
-          <ActionLink href={demoLink} target="_blank" rel="noopener noreferrer">
-            DEMO
-          </ActionLink>
-        )}
-        <ActionLink href={sourceLink} target="_blank" rel="noopener noreferrer">
-          Source Code
-        </ActionLink>
+        <ActionLink href={`/blog${slug}`}>Read...</ActionLink>
       </Actions>
     </Container>
   );
 };
 
-ProjectCard.propTypes = {
+BlogCard.propTypes = {
   title: string.isRequired,
   description: string.isRequired,
-  demoLink: string,
-  sourceLink: string.isRequired,
   tags: arrayOf(string),
+  thumbnail: string,
 };
 
-ProjectCard.defaultProps = {
+BlogCard.defaultProps = {
   demoLink: "",
   sourceLink: "",
   tags: [],
+  thumbnail: "",
 };

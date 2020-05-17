@@ -21,6 +21,8 @@ const defaultTheme = {
   text_accent: "#ff3d00",
   text_accent_bright: "#ff6e40",
   bg_color: "#fafafa",
+  bg_light: "#ffffff",
+  bg_dark: "#c7c7c7",
   bg_contrast: "#212121",
   bg_accent: "#ff3d00",
 };
@@ -30,6 +32,8 @@ const darkTheme = {
   text_accent: "#ff3d00",
   text_accent_bright: "#ff6e40",
   bg_color: "#212121",
+  bg_light: "#484848",
+  bg_dark: "#000000",
   bg_contrast: "#fafafa",
   bg_accent: "#ff3d00",
 };

@@ -8,8 +8,8 @@ const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.bg_contrast};
-  color: ${({ theme }) => theme.text_contrast};
+  background-color: ${({ theme }) => theme.bg_color};
+  color: ${({ theme }) => theme.text_color};
 `;
 
 const Year = styled.div``;

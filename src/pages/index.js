@@ -6,6 +6,7 @@ import SEO from "../components/SEO";
 import { Bio } from "../components/Bio";
 import { Social } from "../components/Social";
 import { ProjectsPreview } from "../components/ProjectsPreview";
+import { BlogPreview } from "../components/BlogPreview";
 
 const IndexPage = () => (
   <Layout>
@@ -13,6 +14,7 @@ const IndexPage = () => (
     <Bio />
     <Social />
     <ProjectsPreview />
+    <BlogPreview />
   </Layout>
 );
 
