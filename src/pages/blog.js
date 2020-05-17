@@ -46,7 +46,7 @@ export default function Blog({ data }) {
           {blogPosts.map(({ node }) => {
             return (
               <BlogCard
-                key={node.fields.title}
+                key={node.fields.slug}
                 slug={node.fields.slug}
                 title={node.frontmatter.title}
                 description={node.frontmatter.description}

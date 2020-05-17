@@ -50,9 +50,10 @@ const ProjectsContainer = styled.div`
   width: 100%;
 
   @media only screen and (min-width: 600px) {
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-around;
+    width: 80%;
+  }
+  @media only screen and (min-width: 900px) {
+    width: 60%;
   }
 `;
 

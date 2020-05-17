@@ -9,7 +9,15 @@ import SEO from "../components/SEO";
 const Container = styled.article`
   display: flex;
   flex-direction: column;
-  padding: 1em 2em;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+`;
+
+const HTMLContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 export default function BlogPostTemplate({ data }) {
@@ -21,8 +29,8 @@ export default function BlogPostTemplate({ data }) {
       <SEO title={frontmatter.title} />
       <Container>
         <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <p>{frontmatter.date}</p>
+        <HTMLContainer dangerouslySetInnerHTML={{ __html: html }} />
       </Container>
     </Layout>
   );

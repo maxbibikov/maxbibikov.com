@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { string, arrayOf } from "prop-types";
 
@@ -11,10 +12,6 @@ const Container = styled.article`
   border: 1px solid ${({ theme }) => theme.bg_dark};
   background-color: ${({ theme }) => theme.bg_light};
   margin: 1em 0;
-
-  @media only screen and (min-width: 600px) {
-    width: 45%;
-  }
 `;
 
 const Header = styled.header`
@@ -23,8 +20,11 @@ const Header = styled.header`
   padding: 1em;
 `;
 
-const Title = styled.h3`
+const Title = styled(props => <Link {...props} />)`
   margin: 0;
+  font-family: "Blinker-Bold";
+  font-size: 1.3rem;
+  text-decoration: none;
   margin-bottom: 0.5em;
 `;
 
@@ -34,23 +34,17 @@ const TagsContainer = styled.ul`
   flex-wrap: wrap;
   overflow: scroll;
   align-items: center;
-  justify-content: space-between;
   margin: 0;
   padding: 0em 1em 0.5em 1em;
-  @media only screen and (min-width: 600px) {
-    justify-content: flex-start;
-  }
 `;
 
 const Tag = styled.li`
   padding: 0.25em 0.5em;
   margin: 0;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
   border-radius: 15px;
   border: 1px solid ${({ theme }) => theme.bg_dark};
-  @media only screen and (min-width: 600px) {
-    margin-right: 0.5em;
-    margin-bottom: 0.5em;
-  }
 `;
 
 const Text = styled.p`
@@ -61,7 +55,7 @@ const Text = styled.p`
 
 const Actions = styled.section`
   display: flex;
-  border-top: 1px solid ${({ theme }) => theme.bg_dark};
+  border-top: 1px solid hsla(0, 0%, 0%, 0.2);
   padding: 0.5em 0;
 `;
 
@@ -79,13 +73,13 @@ export const BlogCard = ({ slug, title, description, thumbnail, tags }) => {
   let renderTags;
 
   if (tags && tags.length) {
-    renderTags = tags.map(tag => <Tag key={tag}>#{tag}</Tag>);
+    renderTags = tags.map(tag => <Tag key={tag}>{tag}</Tag>);
   }
 
   return (
     <Container>
       <Header>
-        <h3>{title}</h3>
+        <Title to={`/blog${slug}`}>{title}</Title>
         <Text>{description}</Text>
       </Header>
       <TagsContainer>{renderTags}</TagsContainer>
