@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   repo: maxbibikov/maxbibikov.com
-  branch: add-blog-posts
+  branch: develop
   commit_messages:
     create: "Create {{collection}} “{{slug}}”"
     update: "Update {{collection}} “{{slug}}”"
