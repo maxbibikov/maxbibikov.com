@@ -1,15 +1,15 @@
 ---
 templateKey: project
-title: React Blog Web App
+title: NodeJS Blog REST API
 date: 2020-05-06T09:52:58.195Z
-description: Showcase open-source blog web application. Built with React-Static
-  and Styled Components.
-demo_link: https://www.hellowrld.tech/
-source_link: https://github.com/maxbibikov/blog-react-static
+description: Showcase open-source blog REST API. Built with NodeJS, Express,
+  MongoDB, Passport.
+demo_link: https://api.hellowrld.tech/posts
+source_link: https://github.com/maxbibikov/mb-blog-api
 thumbnail: " "
 tags:
-  - React
-  - React-Static
-  - Styled Components
+  - NodeJS
+  - Express
+  - MongoDB
 ---
-Showcase open-source blog web application. Built with React-Static and Styled Components.
+Showcase open-source blog REST API. Built with NodeJS, Express, MongoDB, Passport.
