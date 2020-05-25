@@ -1,6 +1,6 @@
 ---
 templateKey: project
-title: Blog App built with React-Static and Styled-Components
+title: Blog App built with React-Static and Styled Components
 date: 2020-05-25T06:16:15.893Z
 description: Showcase blog project with generated static content and dynamic
   comments from REST API.
