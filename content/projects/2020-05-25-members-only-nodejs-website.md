@@ -10,6 +10,7 @@ source_link: https://github.com/maxbibikov/members-only
 tags:
   - NodeJS
   - Express
+  - MongoDB
   - Passport
   - Pug
   - Material Components
