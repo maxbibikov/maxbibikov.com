@@ -30,6 +30,7 @@ const SocialLink = styled.a`
   color: ${({ theme }) => theme.text_color};
   cursor: pointer;
   text-decoration: underline;
+  transition: color 0.3s ease;
   &:hover {
     color: ${({ theme }) => theme.text_accent};
   }

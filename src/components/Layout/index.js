@@ -45,7 +45,8 @@ const GlobalStyle = createGlobalStyle`
     transition: background-color 0.5s, color 0.5s ease;
   }
   a {
-    color: ${({ theme }) => theme.text_accent}
+    color: ${({ theme }) => theme.text_accent};
+    transition: color 0.3s ease;
   }
   a:visited {
     color: "#ff9100";

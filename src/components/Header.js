@@ -44,8 +44,7 @@ const Logo = styled(props => <Link {...props} />)`
   text-decoration: none;
   color: ${({ theme }) => theme.text_color};
   font-size: 1.2rem;
-  transition: transform 0.3s linear;
-  transition: background-color 0.5s, color 0.5s ease;
+  transition: transform 0.3s linear, background-color 0.5s, color 0.5s ease;
   &:hover {
     transform: scale(1.05);
     color: ${({ theme }) => theme.text_color};
@@ -66,12 +65,21 @@ const ThemeBtn = styled.button`
   width: 4em;
   height: 100%;
   border: none;
+  padding: 0;
   background-color: ${({ theme }) => theme.bg_color};
   color: ${({ theme }) => theme.text_color};
   transition: background-color 0.5s, color 0.5s ease;
   cursor: pointer;
+  outline: none;
   & svg {
+    transition: all 0.3s ease;
     width: 1.5em;
+  }
+
+  &:hover {
+    svg {
+      color: ${({ theme }) => theme.text_accent_bright};
+    }
   }
 `;
 
@@ -182,7 +190,7 @@ function Header({ toggleTheme, theme }) {
         </NavLink>
       </NavContainer>
       <ThemeBtn type="button" onClick={() => toggleTheme()}>
-        {theme === "default" ? <SunIcon /> : <MoonIcon />}
+        {theme === "default" ? <MoonIcon /> : <SunIcon />}
       </ThemeBtn>
     </HeaderContainer>
   );

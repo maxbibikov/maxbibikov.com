@@ -65,6 +65,7 @@ const ActionLink = styled.a`
   border-radius: 6px;
   font-weight: bold;
   text-transform: uppercase;
+  transition: all 0.3s ease;
   &:hover {
     background-color: ${({ theme }) => theme.bg_contrast};
   }
