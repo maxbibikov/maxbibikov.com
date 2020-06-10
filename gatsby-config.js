@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `maxbibikov.com`,
     description: `Hi! I am Max Bibikov. Full stack web and mobile developer. Welcome to my web site.`,
-    author: `Maksym Bibikov`,
+    author: `Max Bibikov`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

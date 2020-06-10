@@ -10,7 +10,7 @@ const BioContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2em 0;
+  margin: 3em 0;
   padding: 0 0.5em;
 `;
 
@@ -61,7 +61,7 @@ export function Bio() {
       </Avatar>
       <About>
         <TitleContainer>
-          <Title>Maksym Bibikov</Title>
+          <Title>Max Bibikov</Title>
           <AboutText>Full Stack JavaScript Developer</AboutText>
           <TechText>React | React-Native | NodeJS</TechText>
         </TitleContainer>

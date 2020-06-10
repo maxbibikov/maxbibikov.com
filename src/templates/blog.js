@@ -10,8 +10,12 @@ const Container = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 90%;
   padding: 1em;
+
+  @media only screen and (min-width: 900px) {
+    width: 50%;
+  }
 `;
 
 const HTMLContainer = styled.div`

@@ -50,6 +50,7 @@ export default function Blog({ data }) {
                 slug={node.fields.slug}
                 title={node.frontmatter.title}
                 description={node.frontmatter.description}
+                tags={node.frontmatter.tags}
               />
             );
           })}
@@ -64,7 +65,7 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { templateKey: { eq: "project" } } }
+      filter: { frontmatter: { templateKey: { eq: "blog" } } }
     ) {
       edges {
         node {
@@ -77,6 +78,7 @@ export const pageQuery = graphql`
             description
             demo_link
             source_link
+            tags
           }
         }
       }

@@ -3,7 +3,7 @@
   "private": true,
   "description": "personal web site",
   "version": "0.1.0",
-  "author": "Maksym Bibikov <maxbibikov@gmail.com>",
+  "author": "Max Bibikov <contact@maxbibikov.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.15.28",

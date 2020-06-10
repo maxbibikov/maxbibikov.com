@@ -51,6 +51,7 @@ export default function Projects({ data }) {
                 description={node.frontmatter.description}
                 demoLink={node.frontmatter.demo_link}
                 sourceLink={node.frontmatter.source_link}
+                tags={node.frontmatter.tags}
               />
             );
           })}
@@ -75,6 +76,7 @@ export const pageQuery = graphql`
             description
             demo_link
             source_link
+            tags
           }
         }
       }

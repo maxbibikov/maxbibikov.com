@@ -17,7 +17,7 @@ const Year = styled.div``;
 export function Footer() {
   return (
     <FooterContainer>
-      <Year>© {new Date().getFullYear()} Maksym Bibikov</Year>
+      <Year>© {new Date().getFullYear()} Max Bibikov</Year>
       <a
         href="https://github.com/maxbibikov/maxbibikov.com"
         target="_blank"

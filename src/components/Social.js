@@ -11,18 +11,20 @@ const SocialContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
   margin-bottom: 2em;
 `;
 
 const LinkContainer = styled.div`
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const SocialLink = styled.a`
   display: flex;
   align-items: center;
+  margin-bottom: 1em;
   background: none;
   border: none;
   color: ${({ theme }) => theme.text_color};
@@ -31,15 +33,12 @@ const SocialLink = styled.a`
   &:hover {
     color: ${({ theme }) => theme.text_accent};
   }
+  margin: 0 1em 1em;
 `;
 
 const IconContainer = styled.div`
   width: 1.5em;
   margin-right: 0.5em;
-`;
-
-const ColumnSpace = styled.div`
-  width: 3em;
 `;
 
 export const Social = () => {
@@ -58,7 +57,6 @@ export const Social = () => {
           </IconContainer>
           <span>LinkedIn</span>
         </SocialLink>
-        <ColumnSpace />
         <SocialLink
           href="https://github.com/maxbibikov"
           target="_blank"
@@ -69,7 +67,6 @@ export const Social = () => {
           </IconContainer>
           <span>GitHub</span>
         </SocialLink>
-        <ColumnSpace />
         <SocialLink href="mailto:contact@maxbibikov.com">
           <IconContainer>
             <EnvelopeIcon />

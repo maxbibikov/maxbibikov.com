@@ -3,6 +3,7 @@ templateKey: blog
 title: Welcome! How It's Made?
 date: 2020-06-10T09:14:18.469Z
 description: What technologies and tools I used to build this website
+thumbnail: " "
 tags:
   - JAM stack
   - GatsbyJS
