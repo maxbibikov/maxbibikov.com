@@ -59,10 +59,9 @@ module.exports = {
         name: `maxbibikov.com`,
         short_name: `maxbibikov`,
         start_url: `/`,
-        background_color: `#fafafa`,
-        theme_color: `#212121`,
         display: `minimal-ui`,
         icon: `assets/icons/favicon.png`, // This path is relative to the root of the site.
+        theme_color_in_head: `false`,
       },
     },
     {
