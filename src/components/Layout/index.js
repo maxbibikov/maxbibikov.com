@@ -10,11 +10,12 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 // Components
+import { ThemeContext } from "../Theme";
 import Header from "../Header";
 import { Footer } from "../Footer";
 import "./layout.css";
 
-const defaultTheme = {
+const lightTheme = {
   text_color: "#212121",
   text_bright: "#484848",
   text_contrast: "#fafafa",
@@ -39,7 +40,7 @@ const darkTheme = {
 };
 
 const GlobalStyle = createGlobalStyle`
-  html,body {
+  html, body {
     color: ${({ theme }) => theme.text_color};
     background: ${({ theme }) => theme.bg_color};
     transition: background-color 0.5s, color 0.5s ease;
@@ -67,27 +68,8 @@ const MainContainer = styled.main`
   height: 100%;
 `;
 
-const windowGlobal = typeof window !== "undefined";
-
 const Layout = ({ children }) => {
-  let savedTheme = "default";
-  if (windowGlobal) {
-    savedTheme = localStorage.getItem("theme") || "default";
-  }
-  const [theme, setTheme] = React.useState(savedTheme);
-  const toggleTheme = () => {
-    if (theme === "default") {
-      if (windowGlobal) {
-        localStorage.setItem("theme", "dark");
-      }
-      setTheme("dark");
-    } else {
-      if (windowGlobal) {
-        localStorage.setItem("theme", "default");
-      }
-      setTheme("default");
-    }
-  };
+  const { themeName } = React.useContext(ThemeContext);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -99,13 +81,9 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <ThemeProvider theme={theme === "dark" ? darkTheme : defaultTheme}>
+    <ThemeProvider theme={themeName === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <Header
-        siteTitle={data.site.siteMetadata.title}
-        toggleTheme={toggleTheme}
-        theme={theme}
-      />
+      <Header siteTitle={data.site.siteMetadata.title} />
       <MainContainer>{children}</MainContainer>
       <Footer />
     </ThemeProvider>

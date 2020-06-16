@@ -10,6 +10,7 @@ import BarsIcon from "../../assets/icons/bars-solid.svg";
 
 // Components
 import { NavModal } from "./NavModal";
+import { ThemeContext } from "./Theme";
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -20,7 +21,7 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.bg_color};
+  background: ${({ theme }) => theme.bg_color};
   color: ${({ theme }) => theme.text_color};
   height: 4em;
   transition: background-color 0.5s, color 0.5s ease, box-shadow 0.3s linear,
@@ -121,16 +122,17 @@ const NavLink = styled(props => <Link {...props} />)`
   color: ${({ theme }) => theme.text_color};
 `;
 
-function Header({ toggleTheme, theme }) {
+function Header() {
   const [showNavModal, setShowNavModal] = React.useState(false);
   const [hideTopBar, setHideTopBar] = React.useState(false);
   const [topBarShadow, setTopBarShadow] = React.useState(false);
+  const { themeName, toggleTheme } = React.useContext(ThemeContext);
   const scrollYValue = React.useRef(0);
 
   React.useLayoutEffect(() => {
     // use this variable to clear timeout
     let throttleTimeout;
-    function handleScroll(event) {
+    function handleScroll() {
       let scrollYPosition = window.scrollY;
 
       // use timeout throttle because scroll updates too often
@@ -190,7 +192,7 @@ function Header({ toggleTheme, theme }) {
         </NavLink>
       </NavContainer>
       <ThemeBtn type="button" onClick={() => toggleTheme()}>
-        {theme === "default" ? <MoonIcon /> : <SunIcon />}
+        {themeName === "light" ? <MoonIcon /> : <SunIcon />}
       </ThemeBtn>
     </HeaderContainer>
   );
@@ -198,7 +200,8 @@ function Header({ toggleTheme, theme }) {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  toggleTheme: PropTypes.func.isRequired,
+  // toggleTheme: PropTypes.func.isRequired,
+  // theme: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {
