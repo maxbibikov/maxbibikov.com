@@ -24,17 +24,11 @@ const LinkContainer = styled.div`
 const SocialLink = styled.a`
   display: flex;
   align-items: center;
-  margin-bottom: 1em;
+  margin: 0 1em 1em;
   background: none;
   border: none;
-  color: ${({ theme }) => theme.text_color};
   cursor: pointer;
   text-decoration: underline;
-  transition: color 0.3s ease;
-  &:hover {
-    color: ${({ theme }) => theme.text_accent};
-  }
-  margin: 0 1em 1em;
 `;
 
 const IconContainer = styled.div`

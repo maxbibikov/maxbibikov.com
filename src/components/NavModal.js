@@ -13,9 +13,9 @@ const NavModalContainer = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.bg_color};
+  background: ${({ theme }) => theme.primary};
   z-index: 5;
-  color: ${({ theme }) => theme.text_color};
+  color: ${({ theme }) => theme.text};
   opacity: 95%;
   ${({ visible }) => !visible && `display: none`}
 `;
@@ -30,22 +30,21 @@ const NavMenuCloseBtn = styled.button`
   width: 4em;
   height: 4em;
   border: none;
-  background-color: ${({ theme }) => theme.bg_color};
-  color: ${({ theme }) => theme.text_color};
-  transition: background-color 0.5s, color 0.5s ease;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
   & svg {
     width: 1.5em;
   }
 `;
 
-const NavLink = styled(props => <Link {...props} />)`
-  font-family: "Blinker-Bold";
+const NavLink = styled((props) => <Link {...props} />)`
+  font-weight: bold;
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 2em;
   text-decoration: none;
   padding: 0.5em 1em;
-  color: ${({ theme }) => theme.text_color};
+  color: ${({ theme }) => theme.text};
 `;
 
 export function NavModal({ visible, hideModal }) {

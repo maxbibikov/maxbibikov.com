@@ -1,11 +1,21 @@
 @import "../../css/typography.css";
 
 html {
-  font: 18px "Blinker-Regular";
   box-sizing: border-box;
   overflow-y: scroll;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font-size: 18px;
+  font-family: "Blinker-Regular", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
 }
 body {
   margin: 0;
@@ -44,7 +54,6 @@ template {
   display: none;
 }
 a {
-  background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 a:active,
@@ -193,17 +202,6 @@ textarea {
 *:after {
   box-sizing: inherit;
 }
-body {
-  color: #212121;
-  font-family: "Blinker-Regular", Helvetica, sans-serif;
-  font-weight: normal;
-  word-wrap: break-word;
-  font-kerning: normal;
-  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-  font-feature-settings: "kern", "liga", "clig", "calt";
-}
 img {
   max-width: 100%;
   margin-left: 0;
@@ -225,10 +223,6 @@ h1 {
   padding-top: 0;
   margin-bottom: 0;
   color: inherit;
-  font-family: "Blinker-Bold", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
   line-height: 1.1;
@@ -243,10 +237,6 @@ h2 {
   padding-top: 0;
   margin-bottom: 0;
   color: inherit;
-  font-family: "Blinker-Bold", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
   line-height: 1.1;
@@ -261,10 +251,6 @@ h3 {
   padding-top: 0;
   margin-bottom: 0;
   color: inherit;
-  font-family: "Blinker-Bold", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
   line-height: 1.1;
@@ -279,10 +265,6 @@ h4 {
   padding-top: 0;
   margin-bottom: 0;
   color: inherit;
-  font-family: "Blinker-Bold", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
   line-height: 1.1;
@@ -297,10 +279,6 @@ h5 {
   padding-top: 0;
   margin-bottom: 0;
   color: inherit;
-  font-family: "Blinker-Bold", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
   line-height: 1.1;
@@ -315,10 +293,6 @@ h6 {
   padding-top: 0;
   margin-bottom: 0;
   color: inherit;
-  font-family: "Blinker-Bold", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
   line-height: 1.1;

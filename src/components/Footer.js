@@ -7,9 +7,6 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  background-color: ${({ theme }) => theme.bg_color};
-  color: ${({ theme }) => theme.text_color};
 `;
 
 const Year = styled.div``;

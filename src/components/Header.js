@@ -10,6 +10,7 @@ import BarsIcon from "../../assets/icons/bars-solid.svg";
 
 // Components
 import { NavModal } from "./NavModal";
+import { ThemeContext } from "./Theme";
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -20,86 +21,81 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.bg_color};
-  color: ${({ theme }) => theme.text_color};
+  background: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
   height: 4em;
-  transition: background-color 0.5s, color 0.5s ease, box-shadow 0.3s linear,
-    top 0.3s ease;
+  transition: box-shadow 0.3s linear, top 0.3s ease;
   overflow: hidden;
   ${({ topBarShadow }) =>
     topBarShadow && `box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);`}
-  ${({ hideTopBar }) =>
-    hideTopBar && `top: -4em;`}
-  @media only screen and (min-width: 900px) {
-    justify-content: center;
-  }
+  ${({ hideTopBar }) => hideTopBar && `top: -4em;`}
 `;
 
-const Logo = styled(props => <Link {...props} />)`
+const Logo = styled((props) => <Link {...props} />)`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   padding: 0 1em;
   text-decoration: none;
-  color: ${({ theme }) => theme.text_color};
+  color: ${({ theme }) => theme.text};
   font-size: 1.2rem;
-  transition: transform 0.3s linear, background-color 0.5s, color 0.5s ease;
   &:hover {
-    transform: scale(1.05);
-    color: ${({ theme }) => theme.text_color};
+    color: ${({ theme }) => theme.text};
   }
   &:visited {
-    color: ${({ theme }) => theme.text_color};
+    color: ${({ theme }) => theme.text};
   }
 
   @media only screen and (min-width: 900px) {
-    margin-right: auto;
-  }
-`;
-
-const ThemeBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 4em;
-  height: 100%;
-  border: none;
-  padding: 0;
-  background-color: ${({ theme }) => theme.bg_color};
-  color: ${({ theme }) => theme.text_color};
-  transition: background-color 0.5s, color 0.5s ease;
-  cursor: pointer;
-  outline: none;
-  & svg {
-    transition: all 0.3s ease;
-    width: 1.5em;
-  }
-
-  &:hover {
-    svg {
-      color: ${({ theme }) => theme.text_accent_bright};
-    }
+    order: -1;
   }
 `;
 
 const NavMenuBtn = styled.button`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 4em;
-  height: 4em;
+  width: 5em;
+  padding: 0;
+  height: 100%;
   border: none;
-  background-color: ${({ theme }) => theme.bg_color};
-  color: ${({ theme }) => theme.text_color};
-  transition: background-color 0.5s, color 0.5s ease;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
   ${({ hidden }) => hidden && `visibility: hidden;`}
   & svg {
     width: 1.5em;
   }
+  font-size: 0.9rem;
 
   @media only screen and (min-width: 900px) {
     display: none;
+  }
+`;
+
+const ThemeBtn = styled.button`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 5em;
+  height: 100%;
+  border: none;
+  padding: 0;
+  background-color: ${({ theme }) => theme.primary};
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.text};
+  & svg {
+    width: 1.5em;
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 `;
 
@@ -110,27 +106,29 @@ const NavContainer = styled.nav`
   @media only screen and (min-width: 900px) {
     display: flex;
     align-items: center;
+    margin-left: auto;
   }
 `;
 
-const NavLink = styled(props => <Link {...props} />)`
-  font-family: "Blinker-Bold";
+const NavLink = styled((props) => <Link {...props} />)`
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
   padding: 0.5em 1em;
-  color: ${({ theme }) => theme.text_color};
+  color: ${({ theme }) => theme.text};
 `;
 
-function Header({ toggleTheme, theme }) {
+function Header() {
   const [showNavModal, setShowNavModal] = React.useState(false);
   const [hideTopBar, setHideTopBar] = React.useState(false);
   const [topBarShadow, setTopBarShadow] = React.useState(false);
+  const { themeName, toggleTheme } = React.useContext(ThemeContext);
   const scrollYValue = React.useRef(0);
 
   React.useLayoutEffect(() => {
     // use this variable to clear timeout
     let throttleTimeout;
-    function handleScroll(event) {
+    function handleScroll() {
       let scrollYPosition = window.scrollY;
 
       // use timeout throttle because scroll updates too often
@@ -171,8 +169,14 @@ function Header({ toggleTheme, theme }) {
   return (
     <HeaderContainer hideTopBar={hideTopBar} topBarShadow={topBarShadow}>
       {/* Mobile navigation */}
-      <NavMenuBtn onClick={onMenuBtnClick} hidden={showNavModal}>
+      <NavMenuBtn
+        type="button"
+        aria-label="menu"
+        onClick={onMenuBtnClick}
+        hidden={showNavModal}
+      >
         <BarsIcon />
+        Menu
       </NavMenuBtn>
       <NavModal visible={showNavModal} hideModal={hideModal} />
       <Logo to="/">maxbibikov.com</Logo>
@@ -189,8 +193,13 @@ function Header({ toggleTheme, theme }) {
           Contact
         </NavLink>
       </NavContainer>
-      <ThemeBtn type="button" onClick={() => toggleTheme()}>
-        {theme === "default" ? <MoonIcon /> : <SunIcon />}
+      <ThemeBtn
+        type="button"
+        aria-label="toggle theme"
+        onClick={() => toggleTheme()}
+      >
+        {themeName === "light" ? <MoonIcon /> : <SunIcon />}
+        {themeName === "light" ? "Dark" : "Light"}
       </ThemeBtn>
     </HeaderContainer>
   );
@@ -198,7 +207,6 @@ function Header({ toggleTheme, theme }) {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  toggleTheme: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
