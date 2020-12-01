@@ -48,6 +48,7 @@ const ProjectCardList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 1em;
 
   @media only screen and (min-width: 600px) {
     width: 80%;
