@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { navigate } from "gatsby";
 
 // Components
-import Image from "./image";
+import Image from "./Image";
 import { Button } from "./Button";
 
 const BioContainer = styled.section`
