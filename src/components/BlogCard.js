@@ -22,7 +22,7 @@ const Header = styled.header`
 
 const Title = styled((props) => <Link {...props} />)`
   margin: 0;
-  font-family: "Blinker-Bold";
+  font-weight: bold;
   font-size: 1.3rem;
   text-decoration: none;
   margin-bottom: 0.5em;

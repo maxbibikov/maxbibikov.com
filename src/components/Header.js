@@ -111,7 +111,7 @@ const NavContainer = styled.nav`
 `;
 
 const NavLink = styled((props) => <Link {...props} />)`
-  font-family: "Blinker-Bold";
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
   padding: 0.5em 1em;

@@ -13,7 +13,7 @@ const PrimaryBtn = styled.button`
   box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
   text-transform: uppercase;
   cursor: pointer;
-  font-family: "Blinker-Bold";
+  font-weight: bold;
   transition: opacity 0.3s linear;
   &:hover {
     opacity: 0.8;
@@ -30,7 +30,7 @@ const SecondaryBtn = styled.button`
   border: 1px solid ${({ theme }) => theme.primary};
   border-radius: 6px;
   text-transform: uppercase;
-  font-family: "Blinker-Bold";
+  font-weight: bold;
   cursor: pointer;
   background: none;
   color: ${({ theme }) => theme.accent};

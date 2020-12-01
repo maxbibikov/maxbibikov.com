@@ -38,7 +38,7 @@ const NavMenuCloseBtn = styled.button`
 `;
 
 const NavLink = styled((props) => <Link {...props} />)`
-  font-family: "Blinker-Bold";
+  font-weight: bold;
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 2em;

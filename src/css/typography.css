@@ -3,8 +3,3 @@
   src: url("../../assets/fonts/Blinker-Regular.ttf");
   font-display: swap;
 }
-@font-face {
-  font-family: "Blinker-Bold";
-  src: url("../../assets/fonts/Blinker-Bold.ttf");
-  font-display: swap;
-}
