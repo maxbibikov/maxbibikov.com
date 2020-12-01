@@ -34,23 +34,24 @@ const pageQuery = graphql`
 
 // Styles
 const Container = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
   margin-bottom: 2em;
 `;
 
-const BlogContainer = styled.div`
+const BlogCardList = styled.div`
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 
   @media only screen and (min-width: 600px) {
     width: 80%;
   }
   @media only screen and (min-width: 900px) {
+    flex-direction: row;
     width: 60%;
   }
 `;
@@ -64,7 +65,7 @@ export function BlogPreview() {
   return (
     <Container>
       <h2>BLOG</h2>
-      <BlogContainer>
+      <BlogCardList>
         {blogPosts.map(({ node }) => {
           return (
             <BlogCard
@@ -77,9 +78,9 @@ export function BlogPreview() {
             />
           );
         })}
-      </BlogContainer>
+      </BlogCardList>
 
-      <Button onClick={navigateToBlog}>All Posts</Button>
+      <Button onClick={navigateToBlog}>More Posts</Button>
     </Container>
   );
 }

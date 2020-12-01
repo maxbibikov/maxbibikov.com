@@ -15,10 +15,10 @@ const Container = styled.section`
   margin-bottom: 2em;
 
   @media only screen and (min-width: 600px) {
-    width: 80%;
+    width: 70%;
   }
   @media only screen and (min-width: 900px) {
-    width: 70%;
+    width: 50%;
   }
 `;
 
@@ -41,7 +41,7 @@ export default function Projects({ data }) {
   return (
     <Layout>
       <Container>
-        <h2>ALL PROJECTS</h2>
+        <h2>PROJECTS</h2>
         <ProjectsContainer>
           {projects.map(({ node }) => {
             return (

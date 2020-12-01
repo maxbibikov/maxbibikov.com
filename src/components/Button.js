@@ -8,19 +8,18 @@ const PrimaryBtn = styled.button`
   padding: 0.5em 1em;
   border: none;
   border-radius: 6px;
-  color: ${({ theme }) => theme.text_contrast};
-  background-color: ${({ theme }) => theme.bg_contrast};
+  color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.accent};
   box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
   text-transform: uppercase;
   cursor: pointer;
   font-family: "Blinker-Bold";
-  transition: all 0.3s linear;
+  transition: opacity 0.3s linear;
   &:hover {
-    transform: scale(1.05);
+    opacity: 0.8;
   }
   &:active {
-    transform: scale(1);
-    color: ${({ theme }) => theme.bg_accent};
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
@@ -28,21 +27,20 @@ const SecondaryBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${({ theme }) => theme.bg_color};
+  border: 1px solid ${({ theme }) => theme.primary};
   border-radius: 6px;
   text-transform: uppercase;
-  text-decoration: underline;
   font-family: "Blinker-Bold";
   cursor: pointer;
   background: none;
-  color: ${({ theme }) => theme.text_color};
+  color: ${({ theme }) => theme.accent};
   transition: border 0.3s linear;
   padding: 0.5em 1em;
   &:hover {
-    border: 1px solid ${({ theme }) => theme.bg_contrast};
+    border: 1px solid ${({ theme }) => theme.accent};
   }
   &:active {
-    color: ${({ theme }) => theme.text_accent};
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 

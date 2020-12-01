@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { navigate } from "gatsby";
 
 // Components
-import Image from "./Image";
+import Image from "./image";
 import { Button } from "./Button";
 
 const BioContainer = styled.section`
@@ -49,7 +49,6 @@ const AboutText = styled.p`
 
 const TechText = styled.p`
   font-size: 1.1rem;
-  color: ${({ theme }) => theme.text_accent};
 `;
 
 export function Bio() {
@@ -62,7 +61,7 @@ export function Bio() {
       <About>
         <TitleContainer>
           <Title>Max Bibikov</Title>
-          <AboutText>Full Stack JavaScript Developer</AboutText>
+          <AboutText>Full Stack Software Engineer</AboutText>
           <TechText>React | React-Native | NodeJS</TechText>
         </TitleContainer>
       </About>

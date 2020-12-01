@@ -10,7 +10,7 @@ import { Button } from "./Button";
 const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      limit: 2
+      limit: 3
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { templateKey: { eq: "project" } } }
     ) {
@@ -36,18 +36,18 @@ const pageQuery = graphql`
 
 // Styles
 const Container = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
   margin-bottom: 2em;
 `;
 
-const ProjectsContainer = styled.div`
+const ProjectCardList = styled.div`
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 
   @media only screen and (min-width: 600px) {
     width: 80%;
@@ -66,7 +66,7 @@ export function ProjectsPreview() {
   return (
     <Container>
       <h2>PROJECTS</h2>
-      <ProjectsContainer>
+      <ProjectCardList>
         {projects.map(({ node }) => {
           return (
             <ProjectCard
@@ -79,9 +79,9 @@ export function ProjectsPreview() {
             />
           );
         })}
-      </ProjectsContainer>
+      </ProjectCardList>
 
-      <Button onClick={navigateToProjects}>All Projects</Button>
+      <Button onClick={navigateToProjects}>More Projects</Button>
     </Container>
   );
 }

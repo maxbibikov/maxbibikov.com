@@ -4,12 +4,12 @@ import styled from "styled-components";
 // Components
 import { Button } from "./Button";
 
-const ContactFormContainer = styled.form`
+const Container = styled.form`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2em 0;
   width: 80%;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2em 0;
 
   @media only screen and (min-width: 600px) {
     width: 50%;
@@ -20,58 +20,56 @@ const ContactFormContainer = styled.form`
 `;
 
 const Title = styled.h1`
+  align-self: center;
   margin: 0;
 `;
 
 const Row = styled.div`
   margin-top: 1em;
-  width: 100%;
-`;
-
-const Input = styled.input`
-  border: 1px solid #fff;
-  border-radius: 6px;
-  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
-  padding: 0.5em;
-  width: 100%;
-  font-weight: normal;
-  &:focus {
-    border-color: ${({ theme }) => theme.bg_accent};
-  }
 `;
 
 const Label = styled.label`
   display: block;
+  cursor: pointer;
   &:focus-within {
     font-weight: bold;
-    color: ${({ theme }) => theme.text_accent};
+    color: ${({ theme }) => theme.accent};
   }
 `;
 
+const Input = styled.input`
+  display: block;
+  width: 100%;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+  margin-top: 0.2em;
+  padding: 0.5em;
+  font-weight: normal;
+`;
+
 const Textarea = styled.textarea`
+  display: block;
   width: 100%;
   border: 1px solid #fff;
   border-radius: 6px;
   box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
   resize: vertical;
+  margin-top: 0.2em;
   padding: 0.5em;
   font-weight: normal;
-
-  &:focus {
-    border-color: ${({ theme }) => theme.text_accent};;
-  }
 `;
 
 const Controlls = styled.section`
   display: flex;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: space-around;
+  width: 100%;
   margin-top: 2em;
 `;
 
 export const ContactForm = () => {
   return (
-    <ContactFormContainer
+    <Container
       method="POST"
       name="contact"
       action="/success"
@@ -142,6 +140,6 @@ export const ContactForm = () => {
           Clear
         </Button>
       </Controlls>
-    </ContactFormContainer>
+    </Container>
   );
 };
