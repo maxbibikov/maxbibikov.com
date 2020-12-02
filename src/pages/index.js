@@ -10,7 +10,7 @@ import { BlogPreview } from "../components/BlogPreview";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Max Bibikov - Full Stack Software Engineer" />
+    <SEO title="Max Bibikov - full stack software developer" />
     <Bio />
     <Social />
     <ProjectsPreview />
