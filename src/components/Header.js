@@ -6,11 +6,10 @@ import styled from "styled-components";
 // Assets
 import SunIcon from "../../assets/icons/sun-solid.svg";
 import MoonIcon from "../../assets/icons/moon-solid.svg";
-import BarsIcon from "../../assets/icons/bars-solid.svg";
 
 // Components
-import { NavModal } from "./NavModal";
 import { ThemeContext } from "./Theme";
+import { Navigation } from "./Navigation";
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -52,28 +51,6 @@ const Logo = styled((props) => <Link {...props} />)`
   }
 `;
 
-const NavMenuBtn = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 5em;
-  padding: 0;
-  height: 100%;
-  border: none;
-  background-color: ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.text};
-  ${({ hidden }) => hidden && `visibility: hidden;`}
-  & svg {
-    width: 1.5em;
-  }
-  font-size: 0.9rem;
-
-  @media only screen and (min-width: 900px) {
-    display: none;
-  }
-`;
-
 const ThemeBtn = styled.button`
   position: relative;
   display: flex;
@@ -99,27 +76,7 @@ const ThemeBtn = styled.button`
   }
 `;
 
-const NavContainer = styled.nav`
-  display: none;
-  height: 100%;
-
-  @media only screen and (min-width: 900px) {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-  }
-`;
-
-const NavLink = styled((props) => <Link {...props} />)`
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  padding: 0.5em 1em;
-  color: ${({ theme }) => theme.text};
-`;
-
 function Header() {
-  const [showNavModal, setShowNavModal] = React.useState(false);
   const [hideTopBar, setHideTopBar] = React.useState(false);
   const [topBarShadow, setTopBarShadow] = React.useState(false);
   const { themeName, toggleTheme } = React.useContext(ThemeContext);
@@ -161,38 +118,10 @@ function Header() {
     };
   }, [topBarShadow, hideTopBar]);
 
-  const onMenuBtnClick = () => {
-    setShowNavModal(true);
-  };
-  const hideModal = () => setShowNavModal(false);
-
   return (
     <HeaderContainer hideTopBar={hideTopBar} topBarShadow={topBarShadow}>
-      {/* Mobile navigation */}
-      <NavMenuBtn
-        type="button"
-        aria-label="menu"
-        onClick={onMenuBtnClick}
-        hidden={showNavModal}
-      >
-        <BarsIcon />
-        Menu
-      </NavMenuBtn>
-      <NavModal visible={showNavModal} hideModal={hideModal} />
+      <Navigation />
       <Logo to="/">maxbibikov.com</Logo>
-      {/* Big screen navigation */}
-      <NavContainer>
-        <NavLink to="/" activeStyle={{ textDecoration: "underline" }}>
-          Home
-        </NavLink>
-
-        <NavLink to="/projects" activeStyle={{ textDecoration: "underline" }}>
-          Projects
-        </NavLink>
-        <NavLink to="/contact" activeStyle={{ textDecoration: "underline" }}>
-          Contact
-        </NavLink>
-      </NavContainer>
       <ThemeBtn
         type="button"
         aria-label="toggle theme"
