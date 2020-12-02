@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `maxbibikov.com`,
-    description: `Hi! I am Max Bibikov. Full stack web and mobile developer. Welcome to my web site.`,
+    description: `Max Bibikov. Full stack web developer. Personal web site`,
     author: `Max Bibikov`,
   },
   plugins: [
@@ -59,9 +59,15 @@ module.exports = {
         name: `maxbibikov.com`,
         short_name: `maxbibikov`,
         start_url: `/`,
+        background_color: `#fafafa`,
+        theme_color: `#212121`,
         display: `minimal-ui`,
         icon: `assets/icons/favicon.png`, // This path is relative to the root of the site.
-        theme_color_in_head: `false`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
+        // https://www.gatsbyjs.com/plugins/gatsby-plugin-offline/#using-with-gatsby-plugin-manifest
+        cache_busting_mode: "none",
       },
     },
     {
@@ -74,6 +80,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 };
