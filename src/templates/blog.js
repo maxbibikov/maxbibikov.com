@@ -21,7 +21,6 @@ const Container = styled.article`
 const HTMLContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
 `;
 
 export default function BlogPostTemplate({ data }) {

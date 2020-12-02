@@ -8,8 +8,8 @@ const Container = styled.article`
   display: flex;
   flex-direction: column;
   border-radius: 6px;
-  border: 1px solid ${({ theme }) => theme.bg_dark};
-  background-color: ${({ theme }) => theme.bg_light};
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  background-color: ${({ theme }) => theme.primary_light};
   margin: 1em 0;
 `;
 
@@ -28,19 +28,16 @@ const TagsContainer = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  overflow: scroll;
-  align-items: center;
   margin: 0;
-  padding: 0em 1em 0.5em 1em;
+  padding: 0em 1em;
 `;
 
 const Tag = styled.li`
-  padding: 0.25em 0.5em;
-  margin: 0;
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
+  padding: 0.2em 0.5em 0.25em;
+  font-size: 0.9rem;
+  margin: 0 0.5em 0.5em 0;
   border-radius: 15px;
-  border: 1px solid ${({ theme }) => theme.bg_dark};
+  border: 1px solid hsla(0, 0%, 0%, 0.25);
 `;
 
 const Text = styled.p`
@@ -51,19 +48,21 @@ const Text = styled.p`
 
 const Actions = styled.section`
   display: flex;
-  border-top: 1px solid hsla(0, 0%, 0%, 0.2);
   padding: 0.5em 0;
 `;
 
 const ActionLink = styled.a`
   padding: 0.5em 0.5em;
   margin: 0 0.5em;
+  border: 1px solid transparent;
   border-radius: 6px;
   font-weight: bold;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  transition: border 0.3s ease;
   &:hover {
-    background-color: ${({ theme }) => theme.bg_contrast};
+    opacity: 1;
+    border: 1px solid ${({ theme }) => theme.accent};
   }
 `;
 
@@ -77,7 +76,7 @@ export const ProjectCard = ({
   let renderTags;
 
   if (tags && tags.length) {
-    renderTags = tags.map(tag => <Tag key={tag}>{tag}</Tag>);
+    renderTags = tags.map((tag) => <Tag key={tag}>{tag}</Tag>);
   }
 
   return (

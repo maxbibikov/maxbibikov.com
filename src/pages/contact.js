@@ -7,7 +7,7 @@ import { ContactForm } from "../components/ContactForm";
 
 const ContactPage = () => (
   <Layout>
-    <SEO title="Contact Me" />
+    <SEO title="Contact" />
     <ContactForm />
   </Layout>
 );

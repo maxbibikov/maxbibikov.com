@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import * as React from "react";
+import styled, { ThemeContext } from "styled-components";
 import { Link } from "gatsby";
 import CrossIcon from "../../assets/icons/times-solid.svg";
 
@@ -13,9 +13,9 @@ const NavModalContainer = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.bg_color};
+  background: ${({ theme }) => theme.primary};
   z-index: 5;
-  color: ${({ theme }) => theme.text_color};
+  color: ${({ theme }) => theme.text};
   opacity: 95%;
   ${({ visible }) => !visible && `display: none`}
 `;
@@ -30,50 +30,42 @@ const NavMenuCloseBtn = styled.button`
   width: 4em;
   height: 4em;
   border: none;
-  background-color: ${({ theme }) => theme.bg_color};
-  color: ${({ theme }) => theme.text_color};
-  transition: background-color 0.5s, color 0.5s ease;
+  background-color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.text};
   & svg {
     width: 1.5em;
   }
 `;
 
-const NavLink = styled(props => <Link {...props} />)`
-  font-family: "Blinker-Bold";
+const NavLink = styled((props) => <Link {...props} />)`
+  font-weight: bold;
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 2em;
   text-decoration: none;
-  padding: 0.5em 1em;
-  color: ${({ theme }) => theme.text_color};
+  padding: 0.25em 1em;
+  color: ${({ theme }) => theme.text};
 `;
 
 export function NavModal({ visible, hideModal }) {
+  const theme = React.useContext(ThemeContext);
+  const activeLinkStyle = {
+    boxShadow: `inset 5px 0 ${theme.accent}, inset -5px 0 ${theme.accent}`,
+  };
+
   return (
     <NavModalContainer visible={visible}>
       <NavMenuCloseBtn onClick={hideModal}>
         <CrossIcon />
       </NavMenuCloseBtn>
-      <NavLink
-        to="/"
-        activeStyle={{ textDecoration: "underline" }}
-        onClick={hideModal}
-      >
+      <NavLink to="/" activeStyle={activeLinkStyle} onClick={hideModal}>
         Home
       </NavLink>
 
-      <NavLink
-        to="/projects"
-        activeStyle={{ textDecoration: "underline" }}
-        onClick={hideModal}
-      >
+      <NavLink to="/projects" activeStyle={activeLinkStyle} onClick={hideModal}>
         Projects
       </NavLink>
-      <NavLink
-        to="/contact"
-        activeStyle={{ textDecoration: "underline" }}
-        onClick={hideModal}
-      >
+      <NavLink to="/contact" activeStyle={activeLinkStyle} onClick={hideModal}>
         Contact
       </NavLink>
     </NavModalContainer>

@@ -5,6 +5,7 @@ import styled from "styled-components";
 // Components
 import Layout from "../components/Layout";
 import { ProjectCard } from "../components/ProjectCard";
+import SEO from "../components/SEO";
 
 // Styles
 const Container = styled.section`
@@ -15,10 +16,10 @@ const Container = styled.section`
   margin-bottom: 2em;
 
   @media only screen and (min-width: 600px) {
-    width: 80%;
+    width: 70%;
   }
   @media only screen and (min-width: 900px) {
-    width: 70%;
+    width: 50%;
   }
 `;
 
@@ -40,8 +41,9 @@ export default function Projects({ data }) {
   const projects = allMarkdownRemark.edges;
   return (
     <Layout>
+      <SEO title="Projects" />
       <Container>
-        <h2>ALL PROJECTS</h2>
+        <h2>PROJECTS</h2>
         <ProjectsContainer>
           {projects.map(({ node }) => {
             return (

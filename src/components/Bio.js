@@ -49,7 +49,6 @@ const AboutText = styled.p`
 
 const TechText = styled.p`
   font-size: 1.1rem;
-  color: ${({ theme }) => theme.text_accent};
 `;
 
 export function Bio() {
@@ -62,7 +61,7 @@ export function Bio() {
       <About>
         <TitleContainer>
           <Title>Max Bibikov</Title>
-          <AboutText>Full Stack JavaScript Developer</AboutText>
+          <AboutText>Full Stack Software Developer</AboutText>
           <TechText>React | React-Native | NodeJS</TechText>
         </TitleContainer>
       </About>

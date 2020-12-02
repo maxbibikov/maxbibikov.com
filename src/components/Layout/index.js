@@ -16,44 +16,37 @@ import { Footer } from "../Footer";
 import "./layout.css";
 
 const lightTheme = {
-  text_color: "#212121",
-  text_bright: "#484848",
-  text_contrast: "#fafafa",
-  text_accent: "#ff3d00",
-  text_accent_bright: "#ff6e40",
-  bg_color: "#fafafa",
-  bg_light: "#ffffff",
-  bg_dark: "#c7c7c7",
-  bg_contrast: "#212121",
-  bg_accent: "#ff3d00",
+  text: "#212121",
+  accent: "#5e35b1",
+  primary: "#fafafa",
+  primary_light: "#ffffff",
+  primary_dark: "#cccab5",
+  secondary: "#212121",
+  secondary_dark: "#000000",
+  secondary_light: "#484848",
 };
 const darkTheme = {
-  text_color: "#fafafa",
-  text_contrast: "#212121",
-  text_accent: "#ff3d00",
-  text_accent_bright: "#ff6e40",
-  bg_color: "#212121",
-  bg_light: "#484848",
-  bg_dark: "#000000",
-  bg_contrast: "#fafafa",
-  bg_accent: "#ff3d00",
+  text: "#fafafa",
+  accent: "#81c784",
+  primary: "#212121",
+  primary_light: "#484848",
+  primary_dark: "#000000",
+  secondary: "#fafafa",
+  secondary_dark: "#cccab5",
+  secondary_light: "#ffffff",
 };
 
 const GlobalStyle = createGlobalStyle`
   html, body {
-    color: ${({ theme }) => theme.text_color};
-    background: ${({ theme }) => theme.bg_color};
-    transition: background-color 0.5s, color 0.5s ease;
+    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.primary};
   }
   a {
-    color: ${({ theme }) => theme.text_accent};
-    transition: color 0.3s ease;
-  }
-  a:visited {
-    color: "#ff9100";
+    color: ${({ theme }) => theme.accent};
+    transition: opacity 0.3s ease;
   }
   a:hover {
-    color: ${({ theme }) => theme.text_accent_bright}
+    opacity: 0.8;
   }
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5em;
@@ -62,10 +55,11 @@ const GlobalStyle = createGlobalStyle`
 
 const MainContainer = styled.main`
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   min-height: calc(100vh - 8em); /* 8em = 4em header + 4 em footer heights */
   height: 100%;
+  width: 100%;
 `;
 
 const Layout = ({ children }) => {
