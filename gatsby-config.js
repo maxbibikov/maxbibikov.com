@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `maxbibikov.com`,
-    description: `Max Bibikov - full stack software developer. Personal web site`,
+    description: `Max Bibikov - full stack software developer. Personal website`,
     author: `Max Bibikov`,
   },
   plugins: [
