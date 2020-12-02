@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 
 // Components
 import { NavModal } from "./NavModal";
@@ -43,12 +43,22 @@ const NavLink = styled((props) => <Link {...props} />)`
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.5em;
+  margin: 0 0.5em;
   color: ${({ theme }) => theme.text};
+
+  &:hover {
+    opacity: 1;
+    box-shadow: inset 0 -3px ${({ theme }) => theme.accent};
+  }
 `;
 
 export function Navigation() {
   const [showNavModal, setShowNavModal] = React.useState(false);
+  const theme = React.useContext(ThemeContext);
+  const activeLinkStyle = {
+    boxShadow: `inset 0 -3px ${theme.accent}`,
+  };
 
   const onMenuBtnClick = () => {
     setShowNavModal(true);
@@ -71,14 +81,14 @@ export function Navigation() {
 
       {/* Big screen navigation */}
       <NavContainer>
-        <NavLink to="/" activeStyle={{ textDecoration: "underline" }}>
+        <NavLink to="/" activeStyle={activeLinkStyle}>
           Home
         </NavLink>
 
-        <NavLink to="/projects" activeStyle={{ textDecoration: "underline" }}>
+        <NavLink to="/projects" activeStyle={activeLinkStyle}>
           Projects
         </NavLink>
-        <NavLink to="/contact" activeStyle={{ textDecoration: "underline" }}>
+        <NavLink to="/contact" activeStyle={activeLinkStyle}>
           Contact
         </NavLink>
       </NavContainer>
