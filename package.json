@@ -1,7 +1,7 @@
 {
   "name": "maxbibikov.com",
   "private": true,
-  "description": "personal web site",
+  "description": "personal website",
   "version": "0.1.0",
   "author": "Max Bibikov <contact@maxbibikov.com>",
   "dependencies": {

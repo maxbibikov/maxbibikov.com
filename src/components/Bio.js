@@ -61,7 +61,7 @@ export function Bio() {
       <About>
         <TitleContainer>
           <Title>Max Bibikov</Title>
-          <AboutText>Full Stack Software Engineer</AboutText>
+          <AboutText>Full Stack Software Developer</AboutText>
           <TechText>React | React-Native | NodeJS</TechText>
         </TitleContainer>
       </About>

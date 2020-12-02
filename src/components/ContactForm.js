@@ -76,7 +76,7 @@ export const ContactForm = () => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
-      <Title>Contact Me</Title>
+      <Title>Contact</Title>
       <Row>
         <Label>
           Name

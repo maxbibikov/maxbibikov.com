@@ -5,6 +5,7 @@ import styled from "styled-components";
 // Components
 import Layout from "../components/Layout";
 import { BlogCard } from "../components/BlogCard";
+import SEO from "../components/SEO";
 
 // Styles
 const PostList = styled.div`
@@ -27,6 +28,7 @@ export default function Blog({ data }) {
   const blogPosts = allMarkdownRemark.edges;
   return (
     <Layout>
+      <SEO title="Blog" />
       <h2>BLOG POSTS</h2>
       <PostList>
         {blogPosts.map(({ node }) => {

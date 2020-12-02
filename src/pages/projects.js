@@ -5,6 +5,7 @@ import styled from "styled-components";
 // Components
 import Layout from "../components/Layout";
 import { ProjectCard } from "../components/ProjectCard";
+import SEO from "../components/SEO";
 
 // Styles
 const Container = styled.section`
@@ -40,6 +41,7 @@ export default function Projects({ data }) {
   const projects = allMarkdownRemark.edges;
   return (
     <Layout>
+      <SEO title="Projects" />
       <Container>
         <h2>PROJECTS</h2>
         <ProjectsContainer>
