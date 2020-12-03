@@ -1,6 +1,6 @@
 ---
 templateKey: blog
-title: Technologies behind maxbibikov.com
+title: Tech Stack Behind This Website
 date: 2020-06-11T06:59:56.279Z
 description: What technologies and tools I used to build my personal website
 tags:
