@@ -49,11 +49,10 @@ const BlogCardList = styled.div`
   margin-bottom: 1em;
 
   @media only screen and (min-width: 600px) {
-    width: 80%;
+    width: 70%;
   }
   @media only screen and (min-width: 900px) {
-    flex-direction: row;
-    width: 60%;
+    width: 40%;
   }
 `;
 
@@ -81,7 +80,9 @@ export function BlogPreview() {
         })}
       </BlogCardList>
 
-      <Button onClick={navigateToBlog}>More Posts</Button>
+      {blogPosts.length > 2 ? (
+        <Button onClick={navigateToBlog}>More Posts</Button>
+      ) : null}
     </Container>
   );
 }

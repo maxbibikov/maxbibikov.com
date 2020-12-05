@@ -7,6 +7,7 @@ const Container = styled.article`
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   border-radius: 6px;
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
   background-color: ${({ theme }) => theme.primary_light};
@@ -49,6 +50,7 @@ const Text = styled.p`
 const Actions = styled.section`
   display: flex;
   padding: 0.5em 0;
+  margin-top: auto;
 `;
 
 const ActionLink = styled.a`

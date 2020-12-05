@@ -12,6 +12,10 @@ const Container = styled.article`
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
   background-color: ${({ theme }) => theme.primary_light};
   margin: 1em 0;
+/* 
+  @media only screen and (min-width: 900px) {
+    max-width: 48%;
+  } */
 `;
 
 const Header = styled.header`
