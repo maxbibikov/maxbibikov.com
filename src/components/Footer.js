@@ -10,7 +10,6 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.primary_light};
 `;
 
 const SourceLink = styled.a`
@@ -34,7 +33,7 @@ export function Footer() {
         rel="noopener noreferrer"
       >
         <GithubIcon />
-        maxbibikov.com
+        SourceCode
       </SourceLink>
     </FooterContainer>
   );
