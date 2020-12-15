@@ -40,15 +40,19 @@ const NavMenuBtn = styled.button`
 `;
 
 const NavLink = styled((props) => <Link {...props} />)`
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   padding: 0.5em 0.5em;
   margin: 0 0.5em;
   color: ${({ theme }) => theme.text};
+  border-bottom: 3px solid transparent;
+  transition: border 0.3s linear;
 
   &:hover {
     opacity: 1;
-    box-shadow: inset 0 -3px ${({ theme }) => theme.accent};
+    border-bottom: 3px solid ${({ theme }) => theme.accent};
   }
 `;
 
@@ -56,7 +60,7 @@ export function Navigation() {
   const [showNavModal, setShowNavModal] = React.useState(false);
   const theme = React.useContext(ThemeContext);
   const activeLinkStyle = {
-    boxShadow: `inset 0 -3px ${theme.accent}`,
+    borderBottom: `3px solid  ${theme.accent}`,
   };
 
   const onMenuBtnClick = () => {
