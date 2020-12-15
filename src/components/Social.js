@@ -6,13 +6,13 @@ import LinkedInIcon from "../../assets/icons/linkedin-brands.svg";
 import GithubIcon from "../../assets/icons/github-alt-brands.svg";
 import EnvelopeIcon from "../../assets/icons/envelope-square-solid.svg";
 
-const SocialContainer = styled.section`
+const Container = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  margin-bottom: 2em;
+  margin: 1em 0 2em;
 `;
 
 const LinkContainer = styled.div`
@@ -23,24 +23,27 @@ const LinkContainer = styled.div`
 
 const SocialLink = styled.a`
   display: flex;
+  padding: 0.5em 1em;
   align-items: center;
-  margin: 0 1em 1em;
   background: none;
   border: none;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: bold;
 `;
 
 const IconContainer = styled.div`
-  width: 1.5em;
-  margin-right: 0.5em;
+  display: flex;
+  margin-right: 0.25em;
+
+  & svg {
+    width: 1em;
+  }
 `;
 
 export const Social = () => {
   return (
-    <SocialContainer>
-      <h2>SOCIAL</h2>
-
+    <Container>
       <LinkContainer>
         <SocialLink
           href="https://www.linkedin.com/in/max-bibikov/"
@@ -69,6 +72,6 @@ export const Social = () => {
           <span>Email</span>
         </SocialLink>
       </LinkContainer>
-    </SocialContainer>
+    </Container>
   );
 };

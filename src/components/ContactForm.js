@@ -32,7 +32,6 @@ const Label = styled.label`
   display: block;
   cursor: pointer;
   &:focus-within {
-    font-weight: bold;
     color: ${({ theme }) => theme.accent};
   }
 `;

@@ -40,7 +40,6 @@ const NavMenuBtn = styled.button`
 `;
 
 const NavLink = styled((props) => <Link {...props} />)`
-  font-weight: bold;
   text-align: center;
   text-decoration: none;
   padding: 0.5em 0.5em;

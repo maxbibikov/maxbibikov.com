@@ -39,6 +39,7 @@ const Tag = styled.li`
   margin: 0 0.5em 0.5em 0;
   border-radius: 15px;
   border: 1px solid hsla(0, 0%, 0%, 0.25);
+  white-space: nowrap;
 `;
 
 const Text = styled.p`

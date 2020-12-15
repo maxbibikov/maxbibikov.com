@@ -40,7 +40,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2em;
+  margin: 4em 0;
 `;
 
 const ProjectCardList = styled.div`
