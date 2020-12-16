@@ -70,7 +70,7 @@ const ActionLink = styled.a`
   }
 `;
 
-export const BlogCard = ({ slug, title, description, thumbnail, tags }) => {
+export const BlogCard = ({ slug, title, description, tags }) => {
   let renderTags;
 
   if (tags && tags.length) {
