@@ -56,7 +56,7 @@ const Actions = styled.section`
 
 const ActionLink = styled.a`
   padding: 0.5em 0.5em;
-  margin: 0 0.5em;
+  margin-left: 0.5em;
   border: 1px solid transparent;
   border-radius: 6px;
   text-transform: uppercase;

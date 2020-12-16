@@ -20,7 +20,6 @@ const Success = () => (
         </span>
       </h1>
       <h3>Message Sent</h3>
-      <h4>I will respond as soon as possible </h4>
       <Link>Home</Link>
     </Container>
   </Layout>

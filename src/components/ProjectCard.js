@@ -56,16 +56,18 @@ const Actions = styled.section`
 
 const ActionLink = styled.a`
   padding: 0.5em 0.5em;
-  margin: 0 0.5em;
+  margin-left: 0.5em;
   border: 1px solid transparent;
   border-radius: 6px;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   transition: border 0.3s ease;
+  white-space: nowrap;
+
   &:hover {
     opacity: 1;
-    border: 1px solid ${({ theme }) => theme.accent};
+    border-color: ${({ theme }) => theme.accent};
   }
 `;
 
@@ -92,11 +94,11 @@ export const ProjectCard = ({
       <Actions>
         {demoLink && (
           <ActionLink href={demoLink} target="_blank" rel="noopener noreferrer">
-            DEMO
+            Demo
           </ActionLink>
         )}
         <ActionLink href={sourceLink} target="_blank" rel="noopener noreferrer">
-          Source Code
+          Code
         </ActionLink>
       </Actions>
     </Container>
