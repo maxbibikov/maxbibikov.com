@@ -10,7 +10,7 @@ import { Button } from "./Button";
 const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      limit: 3
+      limit: 2
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { templateKey: { eq: "project" } } }
     ) {
@@ -40,7 +40,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2em;
+  margin: 4em 0;
 `;
 
 const ProjectCardList = styled.div`
@@ -51,10 +51,10 @@ const ProjectCardList = styled.div`
   margin-bottom: 1em;
 
   @media only screen and (min-width: 600px) {
-    width: 80%;
+    width: 70%;
   }
   @media only screen and (min-width: 900px) {
-    width: 60%;
+    width: 40%;
   }
 `;
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import { string, arrayOf } from "prop-types";
 
@@ -20,9 +19,8 @@ const Header = styled.header`
   padding: 1em;
 `;
 
-const Title = styled((props) => <Link {...props} />)`
+const Title = styled.h3`
   margin: 0;
-  font-weight: bold;
   font-size: 1.3rem;
   text-decoration: none;
   margin-bottom: 0.5em;
@@ -42,6 +40,7 @@ const Tag = styled.li`
   margin: 0 0.5em 0.5em 0;
   border-radius: 15px;
   border: 1px solid hsla(0, 0%, 0%, 0.25);
+  white-space: nowrap;
 `;
 
 const Text = styled.p`
@@ -57,13 +56,13 @@ const Actions = styled.section`
 
 const ActionLink = styled.a`
   padding: 0.5em 0.5em;
-  margin: 0 0.5em;
+  margin-left: 0.5em;
   border: 1px solid transparent;
   border-radius: 6px;
-  font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   transition: border 0.3s ease;
+  font-weight: bold;
 
   &:hover {
     opacity: 1;
@@ -81,7 +80,7 @@ export const BlogCard = ({ slug, title, description, thumbnail, tags }) => {
   return (
     <Container>
       <Header>
-        <Title to={`/blog${slug}`}>{title}</Title>
+        <Title>{title}</Title>
         <Text>{description}</Text>
       </Header>
       <TagsContainer>{renderTags}</TagsContainer>

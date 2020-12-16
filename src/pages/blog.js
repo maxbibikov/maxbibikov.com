@@ -9,17 +9,25 @@ import SEO from "../components/SEO";
 
 // Styles
 const PostList = styled.div`
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
 
   @media only screen and (min-width: 600px) {
-    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    column-gap: 1em;
+    align-items: stretch;
   }
 
-  @media only screen and (min-width: 900px) {
-    width: 50%;
+  @media only screen and (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    column-gap: 1em;
+    align-items: stretch;
   }
 `;
 
