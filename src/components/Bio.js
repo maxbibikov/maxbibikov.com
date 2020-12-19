@@ -47,8 +47,7 @@ const TitleContainer = styled.div`
   flex-direction: column;
 `;
 
-const Name = styled.h3`
-  font-weight: bold;
+const Name = styled.h1`
   margin: 0;
 `;
 

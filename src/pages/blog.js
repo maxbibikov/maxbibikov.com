@@ -37,7 +37,7 @@ export default function Blog({ data }) {
   return (
     <Layout>
       <SEO title="Blog" />
-      <h2>BLOG POSTS</h2>
+      <h1>BLOG POSTS</h1>
       <PostList>
         {blogPosts.map(({ node }) => {
           return (
