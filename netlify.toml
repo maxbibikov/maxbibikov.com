@@ -1,7 +1,7 @@
 # explicit commands for building the site
 # and the folder to publish
 [build]
-command = "yarn build"
+command = "yarn test && yarn build"
 publish = "public"
 
 [build.environment]

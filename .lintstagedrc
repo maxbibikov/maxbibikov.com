@@ -1,4 +1,4 @@
 {
   "*.{js,jsx,json,md}": "prettier --write",
-  "*.{js,jsx}": ["stylelint", "eslint", "yarn run test", "yarn run test:e2e:run"],
+  "*.{js,jsx}": ["stylelint", "eslint"],
 }
