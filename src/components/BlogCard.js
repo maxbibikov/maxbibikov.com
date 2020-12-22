@@ -19,9 +19,8 @@ const Header = styled.header`
   padding: 1em;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   margin: 0;
-  font-size: 1.3rem;
   text-decoration: none;
   margin-bottom: 0.5em;
 `;

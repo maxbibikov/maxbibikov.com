@@ -31,9 +31,10 @@ export function Footer() {
         href="https://github.com/maxbibikov/maxbibikov.com"
         target="_blank"
         rel="noopener noreferrer"
+        data-testid="source-link"
       >
         <GithubIcon />
-        SourceCode
+        Source Code
       </SourceLink>
     </FooterContainer>
   );

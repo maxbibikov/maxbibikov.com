@@ -20,7 +20,7 @@ const Header = styled.header`
   padding: 1em;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   margin: 0;
   margin-bottom: 0.5em;
 `;

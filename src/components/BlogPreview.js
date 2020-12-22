@@ -52,7 +52,7 @@ const BlogCardList = styled.div`
     width: 70%;
   }
   @media only screen and (min-width: 900px) {
-    width: 40%;
+    width: 45%;
   }
 `;
 

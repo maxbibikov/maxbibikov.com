@@ -38,7 +38,7 @@ export default function Projects({ data }) {
   return (
     <Layout>
       <SEO title="Projects" />
-      <h2>PROJECTS</h2>
+      <h1>PROJECTS</h1>
       <Container>
         {projects.map(({ node }) => {
           return (
