@@ -7,6 +7,7 @@ const Container = styled.article`
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   border-radius: 6px;
   box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
   background-color: ${({ theme }) => theme.primary_light};
@@ -19,7 +20,7 @@ const Header = styled.header`
   padding: 1em;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   margin: 0;
   margin-bottom: 0.5em;
 `;
@@ -38,6 +39,7 @@ const Tag = styled.li`
   margin: 0 0.5em 0.5em 0;
   border-radius: 15px;
   border: 1px solid hsla(0, 0%, 0%, 0.25);
+  white-space: nowrap;
 `;
 
 const Text = styled.p`
@@ -49,20 +51,23 @@ const Text = styled.p`
 const Actions = styled.section`
   display: flex;
   padding: 0.5em 0;
+  margin-top: auto;
 `;
 
 const ActionLink = styled.a`
   padding: 0.5em 0.5em;
-  margin: 0 0.5em;
+  margin-left: 0.5em;
   border: 1px solid transparent;
   border-radius: 6px;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   transition: border 0.3s ease;
+  white-space: nowrap;
+
   &:hover {
     opacity: 1;
-    border: 1px solid ${({ theme }) => theme.accent};
+    border-color: ${({ theme }) => theme.accent};
   }
 `;
 
@@ -89,11 +94,11 @@ export const ProjectCard = ({
       <Actions>
         {demoLink && (
           <ActionLink href={demoLink} target="_blank" rel="noopener noreferrer">
-            DEMO
+            Demo
           </ActionLink>
         )}
         <ActionLink href={sourceLink} target="_blank" rel="noopener noreferrer">
-          Source Code
+          Code
         </ActionLink>
       </Actions>
     </Container>

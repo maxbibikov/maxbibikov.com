@@ -1,17 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { navigate } from "gatsby";
 
 // Components
 import Image from "./Image";
-import { Button } from "./Button";
 
-const BioContainer = styled.section`
+const Container = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3em 0;
-  padding: 0 0.5em;
+  margin: 2em 0 0;
+
+  @media only screen and (min-width: 425px) {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 const Avatar = styled.div`
@@ -23,9 +26,19 @@ const Avatar = styled.div`
   overflow: hidden;
   border-radius: 75px;
   border: 2px solid #fff;
-  margin-bottom: 0.5em;
-  & img {
-    margin: 0;
+  margin-bottom: 1em;
+
+  @media only screen and (min-width: 425px) {
+    margin-bottom: 0;
+    margin-right: 1em;
+  }
+`;
+
+const About = styled.div`
+  text-align: center;
+
+  @media only screen and (min-width: 425px) {
+    text-align: left;
   }
 `;
 
@@ -34,38 +47,32 @@ const TitleContainer = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.h3`
+const Name = styled.h1`
   margin: 0;
-`;
-
-const About = styled.div`
-  text-align: center;
 `;
 
 const AboutText = styled.p`
   margin: 0;
-  font-size: 1.1rem;
 `;
 
 const TechText = styled.p`
-  font-size: 1.1rem;
+  opacity: 0.8;
+  margin: 0;
 `;
 
 export function Bio() {
-  const navigateToContact = () => navigate("/contact");
   return (
-    <BioContainer>
+    <Container>
       <Avatar>
         <Image />
       </Avatar>
       <About>
         <TitleContainer>
-          <Title>Max Bibikov</Title>
+          <Name>Max Bibikov</Name>
           <AboutText>Full Stack Software Developer</AboutText>
-          <TechText>React | React-Native | NodeJS</TechText>
+          <TechText>React, React-Native, NodeJS</TechText>
         </TitleContainer>
       </About>
-      <Button onClick={navigateToContact}>contact me</Button>
-    </BioContainer>
+    </Container>
   );
 }

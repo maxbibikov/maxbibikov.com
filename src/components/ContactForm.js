@@ -1,3 +1,4 @@
+import { navigate } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
@@ -31,10 +32,16 @@ const Row = styled.div`
 const Label = styled.label`
   display: block;
   cursor: pointer;
+
   &:focus-within {
-    font-weight: bold;
     color: ${({ theme }) => theme.accent};
   }
+`;
+
+const Hint = styled.p`
+  margin-bottom: 0;
+  font-size: 0.8em;
+  color: ${({ theme }) => theme.secondary_light};
 `;
 
 const Input = styled.input`
@@ -42,7 +49,7 @@ const Input = styled.input`
   width: 100%;
   border: 1px solid #fff;
   border-radius: 6px;
-  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.2);
   margin-top: 0.2em;
   padding: 0.5em;
   font-weight: normal;
@@ -53,7 +60,7 @@ const Textarea = styled.textarea`
   width: 100%;
   border: 1px solid #fff;
   border-radius: 6px;
-  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.2);
   resize: vertical;
   margin-top: 0.2em;
   padding: 0.5em;
@@ -80,11 +87,12 @@ export const ContactForm = () => {
       <Row>
         <Label>
           Name
+          <Hint id="name-hint">Enter your name</Hint>
           <Input
             type="text"
             name="name"
             id="name"
-            placeholder="Enter your name"
+            aria-labelledby="name-hint"
             maxLength={60}
             required
           />
@@ -93,24 +101,14 @@ export const ContactForm = () => {
       <Row>
         <Label>
           Email
+          <Hint id="email-hint">
+            Enter your email address e.g. example@provider.com
+          </Hint>
           <Input
             type="email"
             name="email"
             id="email"
-            placeholder="Enter your email"
-            maxLength={80}
-            required
-          />
-        </Label>
-      </Row>
-      <Row>
-        <Label>
-          Subject
-          <Input
-            type="text"
-            name="subject"
-            id="subject"
-            placeholder="Enter message subject"
+            aria-labelledby="email-hint"
             maxLength={80}
             required
           />
@@ -123,7 +121,6 @@ export const ContactForm = () => {
             name="message"
             id="message"
             rows="5"
-            placeholder="Start typing your message"
             maxLength={1000}
             required
           />
@@ -136,8 +133,8 @@ export const ContactForm = () => {
 
       <Controlls>
         <Button type="submit">Send</Button>
-        <Button type="reset" styleType="secondary">
-          Clear
+        <Button onClick={() => navigate("/")} styleType="secondary">
+          Cancel
         </Button>
       </Controlls>
     </Container>

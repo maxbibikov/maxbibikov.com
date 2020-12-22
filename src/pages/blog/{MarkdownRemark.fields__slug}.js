@@ -3,8 +3,8 @@ import { graphql } from "gatsby";
 import styled from "styled-components";
 
 // Components
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
 
 const Container = styled.article`
   display: flex;
@@ -23,7 +23,7 @@ const HTMLContainer = styled.div`
   flex-direction: column;
 `;
 
-export default function BlogPostTemplate({ data }) {
+export default function BlogPost({ data }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
 

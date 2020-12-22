@@ -27,18 +27,17 @@ const NavMenuCloseBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 4em;
-  height: 4em;
+  padding: 1em;
   border: none;
   background-color: ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.text};
   & svg {
-    width: 1.5em;
+    width: 0.8em;
+    margin-right: 0.25em;
   }
 `;
 
 const NavLink = styled((props) => <Link {...props} />)`
-  font-weight: bold;
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 2em;
@@ -57,6 +56,7 @@ export function NavModal({ visible, hideModal }) {
     <NavModalContainer visible={visible}>
       <NavMenuCloseBtn onClick={hideModal}>
         <CrossIcon />
+        CLOSE
       </NavMenuCloseBtn>
       <NavLink to="/" activeStyle={activeLinkStyle} onClick={hideModal}>
         Home
