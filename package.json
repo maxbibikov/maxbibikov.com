@@ -59,7 +59,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "start": "yarn run develop",
+    "start": "yarn develop",
     "serve": "gatsby serve -p=8000",
     "test": "jest",
     "clean": "gatsby clean",

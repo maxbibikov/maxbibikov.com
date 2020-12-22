@@ -16,17 +16,19 @@ import Img from "gatsby-image";
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "images/profile-pic.webp" }) {
+      placeholderImage: file(relativePath: { eq: "images/profile-pic.jpg" }) {
         childImageSharp {
           fixed(width: 100) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
     }
   `);
 
-  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />;
+  return (
+    <Img fixed={data.placeholderImage.childImageSharp.fixed} alt="My face" />
+  );
 };
 
 export default Image;
