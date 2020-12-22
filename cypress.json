@@ -1,4 +1,5 @@
 {
+  "projectId": "5fs3pt",
   "baseUrl": "http://localhost:8000/",
   "integrationFolder": "cypress/e2e",
   "chromeWebSecurity": false
