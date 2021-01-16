@@ -2,7 +2,7 @@
   "name": "maxbibikov.com",
   "private": true,
   "description": "personal website",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Max Bibikov <contact@maxbibikov.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.11.1",
