@@ -37,7 +37,6 @@ export default function Projects({ data }) {
 
   return (
     <Layout>
-      <SEO title="Projects" />
       <h1>PROJECTS</h1>
       <Container>
         {projects.map(({ node }) => {
@@ -56,6 +55,9 @@ export default function Projects({ data }) {
     </Layout>
   );
 }
+
+// Gatsby Head API instead of react-helmet
+export const Head = () => <SEO title="Projects" />;
 
 // Query
 export const pageQuery = graphql`

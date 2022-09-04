@@ -7,9 +7,11 @@ import { ContactForm } from "../components/ContactForm";
 
 const ContactPage = () => (
   <Layout>
-    <SEO title="Contact" />
     <ContactForm />
   </Layout>
 );
 
 export default ContactPage;
+
+// Gatsby Head API instead of react-helmet
+export const Head = () => <SEO title="Contact" />;

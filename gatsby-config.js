@@ -1,12 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `maxbibikov.com`,
-    description: `Max Bibikov - full stack software developer. Personal website`,
+    description: `Max Bibikov - full stack software developer`,
     author: `Max Bibikov`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
