@@ -11,7 +11,6 @@ import { ContactBtn } from "../components/ContactBtn";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Max Bibikov - full stack software developer" />
     <Bio />
     <Social />
     <ContactBtn />
@@ -21,3 +20,8 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
+// Gatsby Head API instead of react-helmet
+export const Head = () => (
+  <SEO title="Max Bibikov - full stack software developer" />
+);

@@ -24,9 +24,10 @@ const Avatar = styled.div`
   width: 100px;
   height: 100px;
   overflow: hidden;
-  border-radius: 75px;
-  border: 2px solid #fff;
+  border-radius: 50%;
   margin-bottom: 1em;
+  /* To fix safari round corners overflow bug */
+  isolation: isolate;
 
   @media only screen and (min-width: 425px) {
     margin-bottom: 0;
