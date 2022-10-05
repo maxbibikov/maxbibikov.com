@@ -36,7 +36,6 @@ export default function Blog({ data }) {
   const blogPosts = allMarkdownRemark.edges;
   return (
     <Layout>
-      <SEO title="Blog" />
       <h1>BLOG POSTS</h1>
       <PostList>
         {blogPosts.map(({ node }) => {
@@ -54,6 +53,9 @@ export default function Blog({ data }) {
     </Layout>
   );
 }
+
+// Gatsby Head API instead of react-helmet
+export const Head = () => <SEO title="Blog" />;
 
 // Query
 export const pageQuery = graphql`
