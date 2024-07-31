@@ -14,7 +14,7 @@ const PostList = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (width >= 600px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: min-content;
@@ -22,7 +22,7 @@ const PostList = styled.div`
     align-items: stretch;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (width >= 1200px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: min-content;
@@ -59,9 +59,9 @@ export const Head = () => <SEO title="Blog" />;
 
 // Query
 export const pageQuery = graphql`
-  query {
+  {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { templateKey: { eq: "blog" } } }
     ) {
       edges {

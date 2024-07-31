@@ -8,10 +8,10 @@ import { Button } from "./Button";
 
 // Query
 const pageQuery = graphql`
-  query {
+  {
     allMarkdownRemark(
       limit: 2
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { templateKey: { eq: "blog" } } }
     ) {
       edges {
@@ -48,10 +48,11 @@ const BlogCardList = styled.div`
   align-items: center;
   margin-bottom: 1em;
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (width >= 600px) {
     width: 70%;
   }
-  @media only screen and (min-width: 900px) {
+
+  @media only screen and (width >= 900px) {
     width: 45%;
   }
 `;
