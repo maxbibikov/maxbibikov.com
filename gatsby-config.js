@@ -51,6 +51,9 @@ module.exports = {
         ],
       },
     },
+    // CMS
+    `gatsby-plugin-decap-cms`,
+    // Manifest
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
