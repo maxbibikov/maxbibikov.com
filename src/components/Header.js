@@ -22,11 +22,12 @@ const HeaderContainer = styled.header`
   background: ${({ theme }) => theme.primary};
   color: ${({ theme }) => theme.text};
   height: 4em;
-  transition: box-shadow 0.3s linear, top 0.3s ease;
+  transition:
+    box-shadow 0.3s linear,
+    top 0.3s ease;
   overflow: hidden;
   ${({ topBarShadow }) =>
     topBarShadow && `box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);`}
-  ${({ hideTopBar }) => hideTopBar && `top: -4em;`}
 `;
 
 const Logo = styled((props) => <Link {...props} />)`
@@ -38,14 +39,16 @@ const Logo = styled((props) => <Link {...props} />)`
   text-decoration: none;
   color: ${({ theme }) => theme.text};
   font-size: 1.2rem;
+
   &:hover {
     color: ${({ theme }) => theme.text};
   }
+
   &:visited {
     color: ${({ theme }) => theme.text};
   }
 
-  @media only screen and (min-width: 900px) {
+  @media only screen and (width >= 900px) {
     order: -1;
   }
 `;
@@ -66,6 +69,7 @@ const ThemeBtn = styled.button`
   outline: none;
   font-size: 0.9rem;
   color: ${({ theme }) => theme.text};
+
   & svg {
     width: 1.5em;
   }
