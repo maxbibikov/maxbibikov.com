@@ -19,13 +19,14 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.text};
+  background: var(--color-primary);
+  color: var(--color-background);
   height: 4em;
   transition:
     box-shadow 0.3s linear,
     top 0.3s ease;
   overflow: hidden;
+
   ${({ topBarShadow }) =>
     topBarShadow && `box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);`}
 `;
@@ -37,15 +38,15 @@ const Logo = styled((props) => <Link {...props} />)`
   height: 100%;
   padding: 0 1em;
   text-decoration: none;
-  color: ${({ theme }) => theme.text};
+  color: var(--color-base);
   font-size: 1.2rem;
 
   &:hover {
-    color: ${({ theme }) => theme.text};
+    color: var(--color-base);
   }
 
   &:visited {
-    color: ${({ theme }) => theme.text};
+    color: var(--color-base);
   }
 
   @media only screen and (width >= 900px) {
@@ -63,12 +64,12 @@ const ThemeBtn = styled.button`
   height: 100%;
   border: none;
   padding: 0;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: var(--color-primary);
   transition: opacity 0.3s ease;
   cursor: pointer;
   outline: none;
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.text};
+  color: var(--color-base);
 
   & svg {
     width: 1.5em;
@@ -80,7 +81,6 @@ const ThemeBtn = styled.button`
 `;
 
 function Header() {
-  const [hideTopBar, setHideTopBar] = React.useState(false);
   const [topBarShadow, setTopBarShadow] = React.useState(false);
   const { themeName, toggleTheme } = React.useContext(ThemeContext);
   const scrollYValue = React.useRef(0);
@@ -94,19 +94,12 @@ function Header() {
       // use timeout throttle because scroll updates too often
       throttleTimeout = setTimeout(() => {
         // hide shadow if no scroll or top off the page
-        if (window.pageYOffset === 0) {
+        if (window.scrollY === 0) {
           setTopBarShadow(() => false);
         }
         // show top bar shadow on scroll
-        if (window.pageYOffset > 5) {
+        if (window.scrollY > 5) {
           setTopBarShadow(() => true);
-        }
-        // hide top bar on scrolling further down the page
-        if (scrollYValue.current < scrollYPosition && scrollYPosition > 150) {
-          setHideTopBar(() => true);
-        } else {
-          // make top bar visible if scrolling back to the top
-          setHideTopBar(() => false);
         }
         scrollYValue.current = scrollYPosition;
       }, 300);
@@ -119,10 +112,10 @@ function Header() {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(throttleTimeout);
     };
-  }, [topBarShadow, hideTopBar]);
+  }, [topBarShadow]);
 
   return (
-    <HeaderContainer hideTopBar={hideTopBar} topBarShadow={topBarShadow}>
+    <HeaderContainer topBarShadow={topBarShadow}>
       <Navigation />
       <Logo to="/">maxbibikov.com</Logo>
       <ThemeBtn

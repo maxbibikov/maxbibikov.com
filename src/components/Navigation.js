@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
 
 // Components
 import { NavModal } from "./NavModal";
@@ -10,7 +10,7 @@ const NavContainer = styled.nav`
   display: none;
   height: 100%;
 
-  @media only screen and (min-width: 900px) {
+  @media only screen and (width >= 900px) {
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -26,15 +26,16 @@ const NavMenuBtn = styled.button`
   padding: 0;
   height: 100%;
   border: none;
-  background-color: ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.text};
+  background-color: var(--color-primary);
+  color: var(--color-base);
+  font-size: 0.9rem;
   ${({ hidden }) => hidden && `visibility: hidden;`}
+
   & svg {
     width: 1.5em;
   }
-  font-size: 0.9rem;
 
-  @media only screen and (min-width: 900px) {
+  @media only screen and (width >= 900px) {
     display: none;
   }
 `;
@@ -44,23 +45,22 @@ const NavLink = styled((props) => <Link {...props} />)`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 0.5em 0.5em;
+  padding: 0.5em;
   margin: 0 0.5em;
-  color: ${({ theme }) => theme.text};
+  color: var(--color-base);
   border-bottom: 3px solid transparent;
   transition: border 0.3s linear;
 
   &:hover {
     opacity: 1;
-    border-bottom: 3px solid ${({ theme }) => theme.accent};
+    border-bottom: 3px solid var(--color-accent);
   }
 `;
 
 export function Navigation() {
   const [showNavModal, setShowNavModal] = React.useState(false);
-  const theme = React.useContext(ThemeContext);
   const activeLinkStyle = {
-    borderBottom: `3px solid  ${theme.accent}`,
+    borderBottom: `3px solid  var(--color-accent)`,
   };
 
   const onMenuBtnClick = () => {

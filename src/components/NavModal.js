@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { ThemeContext } from "styled-components";
+import styled from "styled-components";
 import { Link } from "gatsby";
 import CrossIcon from "../../assets/icons/times-solid.svg";
 
@@ -13,10 +13,10 @@ const NavModalContainer = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.primary};
+  background: var(--color-primary);
   z-index: 5;
-  color: ${({ theme }) => theme.text};
-  opacity: 95%;
+  color: var(--color-base);
+  opacity: 0.95;
   ${({ visible }) => !visible && `display: none`}
 `;
 
@@ -29,8 +29,9 @@ const NavMenuCloseBtn = styled.button`
   align-items: center;
   padding: 1em;
   border: none;
-  background-color: ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.text};
+  background-color: var(--color-primary);
+  color: var(--color-base);
+
   & svg {
     width: 0.8em;
     margin-right: 0.25em;
@@ -43,13 +44,12 @@ const NavLink = styled((props) => <Link {...props} />)`
   margin-bottom: 2em;
   text-decoration: none;
   padding: 0.25em 1em;
-  color: ${({ theme }) => theme.text};
+  color: var(--color-base);
 `;
 
 export function NavModal({ visible, hideModal }) {
-  const theme = React.useContext(ThemeContext);
   const activeLinkStyle = {
-    boxShadow: `inset 5px 0 ${theme.accent}, inset -5px 0 ${theme.accent}`,
+    boxShadow: `inset 5px 0 var(--color-accent), inset -5px 0 var(--color-accent)`,
   };
 
   return (

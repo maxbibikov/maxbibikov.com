@@ -1,0 +1,22 @@
+/* Themes */
+body[data-theme='light'] {
+    --color-base: #212121;
+    --color-accent: #5e35b1;
+    --color-primary: #fafafa;
+    --color-primary_lt: #ffffff;
+    --color-primary_dk: #cccab5;
+    --color-secondary: #212121;
+    --color-secondary_dk: #000000;
+    --color-secondary_lt: #484848;
+  }
+  
+  body[data-theme='dark'] {
+    --color-base: #fafafa;
+    --color-accent: #81c784;
+    --color-primary: #212121;
+    --color-primary_lt: #484848;
+    --color-primary_dk: #000000;
+    --color-secondary: #fafafa;
+    --color-secondary_dk: #cccab5;
+    --color-secondary_lt: #ffffff;
+  }

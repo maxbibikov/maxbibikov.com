@@ -31,21 +31,23 @@ export const Theme = ({ children }) => {
   React.useEffect(() => {
     const initialTheme = getInitialTheme();
     setThemeName(initialTheme);
+    document.body.dataset.theme = initialTheme;
   }, []);
 
   const toggleTheme = () => {
     if (themeName === "light") {
       localStorage.setItem("theme", "dark");
       setThemeName("dark");
+      document.body.dataset.theme = "dark";
     } else {
       localStorage.setItem("theme", "light");
       setThemeName("light");
+      document.body.dataset.theme = "light";
     }
   };
+
   return (
-    <ThemeContext.Provider
-      value={{ themeName: themeName, toggleTheme: toggleTheme }}
-    >
+    <ThemeContext.Provider value={{ toggleTheme, themeName }}>
       {children}
     </ThemeContext.Provider>
   );
