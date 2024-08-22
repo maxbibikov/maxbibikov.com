@@ -10,7 +10,7 @@ const PrimaryBtn = styled.button`
   border-radius: 6px;
   color: var(--color-primary);
   background-color: var(--color-accent);
-  box-shadow: 0 4px 6px lch(0% 0 0deg / 2%);
+  box-shadow: 0 4px 6px oklch(0% 0 0deg / 20%);
   text-transform: uppercase;
   cursor: pointer;
   font-weight: bold;
