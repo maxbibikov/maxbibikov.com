@@ -8,7 +8,7 @@ const Container = styled.article`
   display: flex;
   flex-direction: column;
   border-radius: 6px;
-  box-shadow: 0 2px 6px 0 oklch(0% 0 0deg / 2%);
+  box-shadow: 0 2px 6px 0 oklch(0% 0 0deg / 20%);
   background-color: var(--color-primary-lt);
   margin: 1em 0;
 `;
