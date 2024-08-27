@@ -1,7 +1,7 @@
 ---
 templateKey: blog
-title: The Tech Stack Powering This Website
-date: 2024-08-27T19:59:00.000Z
+title: The Tech Stack Behind This Website
+date: 2022-12-03T14:00:00.000Z
 description: The technologies and tools I used to build my personal website.
 tags:
   - Jamstack
