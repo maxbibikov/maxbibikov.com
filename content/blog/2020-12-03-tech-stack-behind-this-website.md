@@ -1,8 +1,8 @@
 ---
 templateKey: blog
-title: Tech Stack Behind This Website
-date: 2024-08-27T19:59:00.000Z
-description: What technologies and tools I used to build my personal website
+title: The Tech Stack Behind This Website
+date: 2022-12-03T14:00:00.000Z
+description: The technologies and tools I used to build my personal website.
 tags:
   - Jamstack
   - GatsbyJS
@@ -10,7 +10,7 @@ tags:
   - NetlifyCMS
   - Styled Components
 ---
-Hi, I am Max Bibikov, full stack software developer. In this article I will discuss the technologies I used to build this website.
+Hi, I'm Max Bibikov, a full-stack software developer. In this article I'll discuss the technologies I used to build this website.
 
 When planning my personal website, I had the following requirements in mind:  
 
@@ -20,8 +20,8 @@ When planning my personal website, I had the following requirements in mind:
 * Enable me to write technology-related blog posts
 * Ensure the site is fast, accessible, and responsive
 
-I decided to use the [Jamstack](https://jamstack.org/) architecture, which decouples the web experience layer from data and business logic. This approach enhances flexibility, scalability, performance, and maintainability, allowing me to build a static website without being dependent on a web server. Static websites are fast and can fulfill all the functional requirements for my site.
+I decided to use the [Jamstack](https://jamstack.org/) architecture, which decouples the web experience layer from data and business logic. This approach enhances flexibility, scalability, performance, and maintainability, allowing me to build and host a static website without relying on a dedicated web server. Static websites are fast and can fulfill all the functional requirements for my site.
 
-The Jamstack can consist of a variety of tools, so I needed to select the right ones for my project. After some research and based on my experience with static site generators,  I chose [GatsbyJS](https://www.gatsbyjs.org/). Gatsby is [React](https://reactjs.org/)-based, fast, offers many useful plugins, and has good documentation and an active community. However it requires some knowledge of GraphQL, as Gatsby uses it as an additional layer for data access. 
+The Jamstack can consist of a variety of tools, so I needed to select the right ones for my project. After some research and based on my experience with static site generators,  I chose [GatsbyJS](https://www.gatsbyjs.org/). Gatsby is [React](https://reactjs.org/)-based, fast, offers many useful plugins, and has good documentation and an active community. However, it requires some knowledge of GraphQL, as Gatsby uses it as an additional layer for data access. 
 
-The website content (blog posts and projects) is managed with [DecapCMS](https://decapcms.org/docs) (formerly  NetlifyCMS) and stored alongside the source code in a Git repository. I chose [Netlify](https://www.netlify.com/) platform for hosting because it's fast, reliable, easy to setup and offers automatic builds and deploy  previews whenever changes are pushed to the Git repository.
+The website content (blog posts and projects) is managed with [Decap CMS](https://decapcms.org/docs) (formerly  Netlify CMS) and stored alongside the source code in a Git repository. I chose the [Netlify](https://www.netlify.com/) platform for hosting because it's fast, reliable, easy to setup and offers automatic builds and deploy  previews whenever changes are pushed to the Git repository.
