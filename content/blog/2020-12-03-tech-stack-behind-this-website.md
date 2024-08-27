@@ -1,8 +1,8 @@
 ---
 templateKey: blog
-title: Tech Stack Behind This Website
+title: The Tech Stack Powering This Website
 date: 2024-08-27T19:59:00.000Z
-description: What technologies and tools I used to build my personal website
+description: The technologies and tools I used to build my personal website.
 tags:
   - Jamstack
   - GatsbyJS
@@ -10,7 +10,7 @@ tags:
   - NetlifyCMS
   - Styled Components
 ---
-Hi, I am Max Bibikov, full stack software developer. In this article I will discuss the technologies I used to build this website.
+Hi, I'm Max Bibikov, a full-stack software developer. In this article I'll discuss the technologies I used to build this website.
 
 When planning my personal website, I had the following requirements in mind:  
 
