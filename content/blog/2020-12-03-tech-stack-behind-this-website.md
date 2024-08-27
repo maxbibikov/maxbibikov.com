@@ -7,7 +7,7 @@ tags:
   - Jamstack
   - GatsbyJS
   - React
-  - NetlifyCMS
+  - DecapCMS
   - Styled Components
 ---
 Hi, I'm Max Bibikov, a full-stack software developer. In this article I'll discuss the technologies I used to build this website.
