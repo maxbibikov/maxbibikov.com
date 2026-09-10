@@ -7,17 +7,21 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-git`,
       options: {
-        path: `${__dirname}/content/projects`,
-        name: `projects`,
+        name: `content/projects`,
+        remote: `https://github.com/maxbibikov/maxbibikov.com-content.git`,
+        branch: `main`,
+        patterns: `content/projects/**`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-git`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        name: `content/blog`,
+        remote: `https://github.com/maxbibikov/maxbibikov.com-content.git`,
+        branch: `main`,
+        patterns: `content/blog/**`,
       },
     },
     // Image processing and optimization
@@ -79,8 +83,5 @@ module.exports = {
         },
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
