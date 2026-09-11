@@ -9,5 +9,5 @@
 - [React](https://reactjs.org/)
 - [Gatsby](https://www.gatsbyjs.com/)
 - [Styled Components](https://styled-components.com/)
-- [NetlifyCMS](https://www.netlifycms.org/)
+- [Decap CMS](https://decapcms.org/)
 - [Netlify](https://www.netlify.com/)
